@@ -1,12 +1,15 @@
 {
-  "name": "@xerox/npm-typescript",
+  "name": "browserslist-adobe-analytics",
   "version": "0.0.0",
-  "description": "A repository template for creating npm modules with TypeScript in the @xeroxinteractive org.",
+  "description": "Use Adobe Analytics data to target browsers.",
   "keywords": [
-    "npm-typescript"
+    "browserslist",
+    "adobe analytics",
+    "custom usage data",
+    "caniuse"
   ],
   "main": "build/index.js",
-  "repository": "git@github.com:xeroxinteractive/npm-typescript.git",
+  "repository": "git@github.com:xeroxinteractive/browserslist-adobe-analytics.git",
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
   "scripts": {
