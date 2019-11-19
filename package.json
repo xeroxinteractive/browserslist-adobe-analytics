@@ -1,0 +1,75 @@
+{
+  "name": "@xerox/npm-typescript",
+  "version": "0.0.0",
+  "description": "A repository template for creating npm modules with TypeScript in the @xeroxinteractive org.",
+  "keywords": [
+    "npm-typescript"
+  ],
+  "main": "build/index.js",
+  "repository": "git@github.com:xeroxinteractive/npm-typescript.git",
+  "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run build:clean && tsc --project ./tsconfig.build.json",
+    "build:clean": "rm -rf ./build",
+    "test": "jest",
+    "lint": "eslint ./source/ --ext .ts",
+    "type-check": "tsc",
+    "format": "yarn run lint --fix",
+    "deploy": "semantic-release",
+    "prepublishOnly": "yarn run build"
+  },
+  "browserslist": [
+    "current node"
+  ],
+  "commitlint": {
+    "extends": [
+      "@xerox/commitlint-config"
+    ]
+  },
+  "prettier": "@xerox/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@xerox",
+      "@xerox/eslint-config/typescript"
+    ]
+  },
+  "release": {
+    "extends": "@xerox/semantic-release-config/npm"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "jest": {
+    "testRunner": "jest-circus/runner",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/__specs__/"
+    ],
+    "preset": "ts-jest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.9",
+    "@xerox/commitlint-config": "^2.0.0",
+    "@xerox/eslint-config": "^2.0.1",
+    "@xerox/prettier-config": "^2.0.0",
+    "@xerox/semantic-release-config": "^2.0.0",
+    "eslint": "^5.16.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
+    "prettier": "^1.19.1",
+    "semantic-release": "^15.13.31",
+    "semantic-release-config-xerox": "^1.1.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
+  },
+  "resolutions": {
+    "set-value": ">=2.0.1",
+    "mem": ">=4.0.0",
+    "https-proxy-agent": ">=2.2.3",
+    "handlebars": ">=4.5.2"
+  }
+}
