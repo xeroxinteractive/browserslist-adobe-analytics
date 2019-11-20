@@ -1,9 +1,6 @@
 import { RankedReportData } from 'source/types';
 import { Stats } from 'browserslist';
-import { agents } from 'caniuse-lite';
 import getBaseStats from './getBaseStats';
-
-console.log(agents);
 
 const browserVersionRegex = /(?:(^\D+?)$|(^\D+?)((?:\d\.?){1,3}$))/;
 
@@ -83,11 +80,24 @@ export function getBrowserVersion(
         browser = adobeBrowserslistBrowserMap[browser];
         if (browser && allStats.hasOwnProperty(browser)) {
           if (version) {
+            // Map to browserslist equivalent.
             version = cascadeSemver(version, Object.keys(allStats[browser]));
           }
-          // TODO: Map Safari 0.8.2 and no version to latest.
+          // No version or Safari 0.8.2 use latest.
           // https://helpx.adobe.com/uk/analytics/kb/Why-is-latest-version-of-Safari-reported-as-0-8-2-Adobe-Analytics.html
-          // Map to browserslist equivalent.
+          if (!version || (browser === 'safari' && version === '0.8.2')) {
+            version = Object.keys(allStats[browser]).sort((a, b) => {
+              const aNum = parseFloat(a);
+              const bNum = parseFloat(b);
+              if (aNum === NaN) {
+                return -1;
+              } else if (bNum === NaN) {
+                return 1;
+              }
+              return bNum - aNum;
+            })[0];
+          }
+
           if (version !== null) {
             return {
               browser,

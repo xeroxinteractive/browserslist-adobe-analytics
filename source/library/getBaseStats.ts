@@ -11,27 +11,23 @@ import { Stats } from 'browserslist';
  */
 export default function getBaseStats(): Stats {
   const baseStats: Stats = {};
-  const out = Object.entries(agents).reduce(
-    (stats, [browser, agent]): Stats => {
-      if (agent) {
-        stats[browser] = Object.entries(agent.release_date)
-          .sort((a, b) => {
-            if (a[1] === undefined) {
-              return -1;
-            } else if (b[1] === undefined) {
-              return 1;
-            } else {
-              return b[1] - a[1];
-            }
-          })
-          .reduce((versions, [version]) => {
-            versions[version] = 0;
-            return versions;
-          }, {} as { [version: string]: number });
-      }
-      return stats;
-    },
-    baseStats
-  );
-  return out;
+  return Object.entries(agents).reduce((stats, [browser, agent]): Stats => {
+    if (agent) {
+      stats[browser] = Object.entries(agent.release_date)
+        .sort((a, b) => {
+          if (a[1] === undefined) {
+            return -1;
+          } else if (b[1] === undefined) {
+            return 1;
+          } else {
+            return b[1] - a[1];
+          }
+        })
+        .reduce((versions, [version]) => {
+          versions[version] = 0;
+          return versions;
+        }, {} as { [version: string]: number });
+    }
+    return stats;
+  }, baseStats);
 }
