@@ -44,13 +44,27 @@ export function findVersion(
     .map((possible) => possible.split('-').join(' - '))
     .reverse();
   for (const current of semvers) {
-    const satisfies = semver.satisfies(
-      semver.coerce(version) ?? version,
-      current
-    );
+    // This is kind of confusing to understand, but we try match the semver version
+    // both ways around to may the match more fuzzy. This is not technically accurate
+    // i.e: version 8.2.1 could match to version 8 but we don't want to lose data
+    // So we match loosely.
+    const satisfies =
+      semver.satisfies(semver.coerce(version) ?? version, current) ||
+      semver.satisfies(current, version) ||
+      semver.satisfies(semver.coerce(current) ?? current, `~${version}`);
     if (satisfies) {
       return current.split(' - ').join('-');
     }
+  }
+  // If we don't find a version try fallback to minor/major version.
+  // This allows use to match things like 8.2.2 -> 8.2.1, which again is
+  // not technically accurate but we are trying to find the closest value.
+  const cascade = version
+    .split('.')
+    .slice(0, -1)
+    .join('.');
+  if (cascade) {
+    return findVersion(cascade, possibleVersions);
   }
   return null;
 }
