@@ -1,6 +1,7 @@
 import { RankedReportData } from 'source/types';
 import { Stats } from 'browserslist';
 import getBaseStats from './getBaseStats';
+import semver from 'semver';
 
 const browserVersionRegex = /(?:(^\D+?)$|(^\D+?)((?:\d\.?){1,3}$))/;
 
@@ -37,19 +38,44 @@ const adobeBrowserslistBrowserMap: { [name: string]: string } = {
  * @param possibleVersions - The possible version to cascade within.
  * @returns Matched version or null.
  */
-export function cascadeSemver(
+export function findVersion(
   version: string,
   possibleVersions: string[]
 ): string | null {
-  const versionParts = version.split('.');
-  while (versionParts.length) {
-    const currentVersion = versionParts.join('.');
-    if (possibleVersions.includes(currentVersion)) {
-      return currentVersion;
+  const semvers = possibleVersions
+    .map((possible) => possible.split('-').join(' - '))
+    .reverse();
+  for (const current of semvers) {
+    const satisfies = semver.satisfies(
+      semver.coerce(version) ?? version,
+      current
+    );
+    if (satisfies) {
+      return current.split(' - ').join('-');
     }
-    versionParts.pop();
   }
   return null;
+}
+
+/**
+ * Get the latest version of a browser.
+ *
+ * @param browser - Version to release data mapping for a browser.
+ * @returns Latest version or undefined.
+ */
+export function getLatestVersion(browser: {
+  [version: string]: number;
+}): string | undefined {
+  return Object.keys(browser).sort((a, b) => {
+    const aNum = parseFloat(a);
+    const bNum = parseFloat(b);
+    if (aNum === NaN) {
+      return -1;
+    } else if (bNum === NaN) {
+      return 1;
+    }
+    return bNum - aNum;
+  })[0];
 }
 
 /**
@@ -77,27 +103,24 @@ export function getBrowserVersion(
       browser = browser.trim() || undefined;
       version = version?.trim() || undefined;
       if (browser) {
+        // Map to browserslist equivalent.
         browser = adobeBrowserslistBrowserMap[browser];
         if (browser && allStats.hasOwnProperty(browser)) {
-          if (version) {
-            // Map to browserslist equivalent.
-            version = cascadeSemver(version, Object.keys(allStats[browser]));
-          }
-          // No version or Safari 0.8.2 use latest.
+          // Safari 0.8.2 use latest.
           // https://helpx.adobe.com/uk/analytics/kb/Why-is-latest-version-of-Safari-reported-as-0-8-2-Adobe-Analytics.html
-          if (!version || (browser === 'safari' && version === '0.8.2')) {
-            version = Object.keys(allStats[browser]).sort((a, b) => {
-              const aNum = parseFloat(a);
-              const bNum = parseFloat(b);
-              if (aNum === NaN) {
-                return -1;
-              } else if (bNum === NaN) {
-                return 1;
-              }
-              return bNum - aNum;
-            })[0];
+          if (browser === 'safari' && version === '0.8.2') {
+            version = getLatestVersion(allStats[browser]);
+          } else if (version) {
+            // try match the version to the browserslist base versions.
+            version = findVersion(version, Object.keys(allStats[browser]));
+          }
+          // No version use latest
+          if (!version) {
+            version = getLatestVersion(allStats[browser]);
           }
 
+          // null signifies we have a version but it does not map to browserslist base versions.
+          // so ignore it.
           if (version !== null) {
             return {
               browser,

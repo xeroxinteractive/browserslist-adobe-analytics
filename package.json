@@ -81,6 +81,7 @@
   },
   "dependencies": {
     "@adobe/jwt-auth": "^0.3.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "semver": "^6.3.0"
   }
 }
