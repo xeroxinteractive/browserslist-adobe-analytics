@@ -1,8 +1,10 @@
-import {
+import transformAnalyticsResponse, {
   /*transfromAnalyticsResponse,*/ findVersion,
   getBrowserVersion,
   getLatestVersion,
 } from '../transformAnalyticsResponse';
+import { RankedReportData, ReportDimensionType } from '../../types';
+import getBaseStats from '../getBaseStats';
 
 describe('findVersion', () => {
   test('major', () => {
@@ -146,4 +148,117 @@ describe('getLatestVersion', () => {
   });
 });
 
-describe('transformAnalyticsResponse', () => {});
+describe('transformAnalyticsResponse', () => {
+  const baseResponse: Omit<RankedReportData, 'rows'> = {
+    totalPages: 1,
+    firstPage: true,
+    lastPage: true,
+    numberOfElements: 3,
+    number: 3,
+    totalElements: 3,
+    columns: {
+      dimension: {
+        id: 'variables/browser',
+        type: ReportDimensionType.STRING,
+      },
+      columnIds: ['0'],
+    },
+    summaryData: {
+      filteredTotals: [30.0],
+      totals: [30.0],
+      'col-max': [30.0],
+      'col-min': [2.0],
+    },
+  };
+  const baseStats = getBaseStats();
+  test('multiple with the same version', () => {
+    expect(
+      transformAnalyticsResponse({
+        ...baseResponse,
+        rows: [
+          {
+            itemId: '1',
+            value: 'Google Chrome 70.0',
+            data: [5.0],
+          },
+          {
+            itemId: '2',
+            value: 'Yandex.Browser 70.3',
+            data: [5.0],
+          },
+          {
+            itemId: '3',
+            value: 'Google Chrome 70.19.2',
+            data: [5.0],
+          },
+        ],
+      })
+    ).toEqual(
+      expect.objectContaining({
+        chrome: expect.objectContaining({
+          '70': 0.5,
+        }),
+      })
+    );
+  });
+
+  test('data does not exist', () => {
+    expect(
+      transformAnalyticsResponse({
+        ...baseResponse,
+        rows: [
+          {
+            itemId: '1',
+            value: 'Chrome 70.0',
+            data: [],
+          },
+        ],
+      })
+    ).toEqual(baseStats);
+  });
+
+  test('value does not exist', () => {
+    expect(
+      transformAnalyticsResponse({
+        ...baseResponse,
+        rows: [
+          {
+            itemId: '1',
+            data: [15.0],
+          },
+        ],
+      })
+    ).toEqual(baseStats);
+  });
+
+  test('no browsers', () => {
+    expect(transformAnalyticsResponse({ ...baseResponse, rows: [] })).toEqual(
+      baseStats
+    );
+  });
+
+  test('no valid browsers', () => {
+    expect(
+      transformAnalyticsResponse({
+        ...baseResponse,
+        rows: [
+          {
+            itemId: '1',
+            value: 'Invalid 70.0',
+            data: [5.0],
+          },
+          {
+            itemId: '2',
+            value: 'What',
+            data: [5.0],
+          },
+          {
+            itemId: '3',
+            value: '8.2',
+            data: [2.0],
+          },
+        ],
+      })
+    ).toEqual(baseStats);
+  });
+});

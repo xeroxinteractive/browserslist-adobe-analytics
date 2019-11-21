@@ -153,9 +153,7 @@ export function getBrowserVersion(
 export default function transformAnalyticsResponse(
   response: RankedReportData
 ): Stats {
-  const total =
-    response.summaryData.filteredTotals?.[0] ||
-    response.summaryData.totals?.[0];
+  const total = response.summaryData.filteredTotals[0];
   return response.rows.reduce((acc, cur): Stats => {
     const views = cur.data?.[0];
     if (cur.value && views) {
