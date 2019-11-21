@@ -1,9 +1,8 @@
 import {
   /*transfromAnalyticsResponse,*/ findVersion,
   getBrowserVersion,
-  // getLatestVersion,
+  getLatestVersion,
 } from '../transformAnalyticsResponse';
-import getBaseStats from '../getBaseStats';
 
 describe('findVersion', () => {
   test('major', () => {
@@ -39,7 +38,7 @@ describe('findVersion', () => {
   });
 });
 
-describe.only('getBrowserVersion', () => {
+describe('getBrowserVersion', () => {
   // More specific version matching is done in findVersion, this is just to test the regex matches all 3 levels.
   test('major version', () => {
     expect(
@@ -128,6 +127,23 @@ describe.only('getBrowserVersion', () => {
   });
 });
 
-describe('getLatestVersion', () => {});
+describe('getLatestVersion', () => {
+  test('gets the latest version', () => {
+    expect(
+      getLatestVersion({
+        '1.4': 0,
+        '1.1': 0,
+        '1.2': 0,
+        '1.4.3': 0,
+        '1.2.8': 0,
+        TP: 0,
+      })
+    ).toBe('1.4.3');
+  });
+
+  test('no versions', () => {
+    expect(getLatestVersion({})).toBeUndefined();
+  });
+});
 
 describe('transformAnalyticsResponse', () => {});
