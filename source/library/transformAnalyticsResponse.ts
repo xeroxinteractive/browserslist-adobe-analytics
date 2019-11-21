@@ -26,16 +26,14 @@ const adobeBrowserslistBrowserMap: { [name: string]: string } = {
   'MQQ Browser': 'and_qq',
 };
 
-// TODO: Add range matching.
 /**
- * Cascades the specificity of a semver version against an array of possible values.
+ * Finds the browserslist version that best matches the given version.
  *
  * @remarks
- * Does x.x.x exist, then x.x then x.
  * Deliberately returns null to signify an invalid version rather than a non existing one.
  *
- * @param version - The semver version to cascade.
- * @param possibleVersions - The possible version to cascade within.
+ * @param version - The version to check for.
+ * @param possibleVersions - The browserslist base versions to check against.
  * @returns Matched version or null.
  */
 export function findVersion(
