@@ -3,7 +3,7 @@ import { Stats } from 'browserslist';
 import getBaseStats from './getBaseStats';
 import semver from 'semver';
 
-const browserVersionRegex = /(?:(^\D+?)$|(^\D+?)((?:\d\.?){1,3}$))/;
+const browserVersionRegex = /(?:(^\D+?)$|(^\D+?)((?:\d{1,16}\.?){1,3}\s*$))/;
 
 const adobeBrowserslistBrowserMap: { [name: string]: string } = {
   'Google Chrome': 'chrome',
