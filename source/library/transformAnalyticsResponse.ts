@@ -50,7 +50,6 @@ export function findVersion(
     // So we match loosely.
     const satisfies =
       semver.satisfies(semver.coerce(version) ?? version, current) ||
-      semver.satisfies(current, version) ||
       semver.satisfies(semver.coerce(current) ?? current, `~${version}`);
     if (satisfies) {
       return current.split(' - ').join('-');
