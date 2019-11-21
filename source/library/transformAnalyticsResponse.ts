@@ -78,14 +78,14 @@ export function getLatestVersion(browser: {
   [version: string]: number;
 }): string | undefined {
   return Object.keys(browser).sort((a, b) => {
-    const aNum = parseFloat(a);
-    const bNum = parseFloat(b);
-    if (aNum === NaN) {
+    const versionA = semver.coerce(a);
+    const versionB = semver.coerce(b);
+    if (!versionB || (versionA && semver.gt(versionA, versionB))) {
       return -1;
-    } else if (bNum === NaN) {
+    } else if (!versionA || (versionB && semver.lt(versionA, versionB))) {
       return 1;
     }
-    return bNum - aNum;
+    return 0;
   })[0];
 }
 
