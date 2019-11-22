@@ -34,7 +34,7 @@ export default async function getAnalyticsResponse(
     if (!response.ok) {
       throw new ResponseError(response.statusText, response.status);
     }
-    return response.json();
+    return await response.json();
   } catch (e) {
     console.error(e);
   }
