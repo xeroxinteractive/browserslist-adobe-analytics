@@ -15,10 +15,10 @@ export default function getBaseStats(): Stats {
     if (agent) {
       stats[browser] = Object.entries(agent.release_date)
         .sort((a, b) => {
-          if (a[1] === undefined) {
-            return -1;
-          } else if (b[1] === undefined) {
+          if (a[1] === undefined || a[1] === null) {
             return 1;
+          } else if (b[1] === undefined || b[1] === null) {
+            return -1;
           } else {
             return b[1] - a[1];
           }

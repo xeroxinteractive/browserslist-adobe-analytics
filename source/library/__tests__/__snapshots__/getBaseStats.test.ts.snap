@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`expected data 1`] = `
+exports[`actual data 1`] = `
 Object {
   "and_chr": Object {
     "78": 0,
@@ -342,31 +342,31 @@ Object {
 }
 `;
 
-exports[`version order: and_chr 1`] = `
+exports[`actual ordering: and_chr 1`] = `
 Array [
   "78",
 ]
 `;
 
-exports[`version order: and_ff 1`] = `
+exports[`actual ordering: and_ff 1`] = `
 Array [
   "68",
 ]
 `;
 
-exports[`version order: and_qq 1`] = `
+exports[`actual ordering: and_qq 1`] = `
 Array [
   "1.2",
 ]
 `;
 
-exports[`version order: and_uc 1`] = `
+exports[`actual ordering: and_uc 1`] = `
 Array [
   "12.12",
 ]
 `;
 
-exports[`version order: android 1`] = `
+exports[`actual ordering: android 1`] = `
 Array [
   "3",
   "4",
@@ -381,20 +381,20 @@ Array [
 ]
 `;
 
-exports[`version order: baidu 1`] = `
+exports[`actual ordering: baidu 1`] = `
 Array [
   "7.12",
 ]
 `;
 
-exports[`version order: bb 1`] = `
+exports[`actual ordering: bb 1`] = `
 Array [
   "7",
   "10",
 ]
 `;
 
-exports[`version order: chrome 1`] = `
+exports[`actual ordering: chrome 1`] = `
 Array [
   "4",
   "5",
@@ -477,7 +477,7 @@ Array [
 ]
 `;
 
-exports[`version order: edge 1`] = `
+exports[`actual ordering: edge 1`] = `
 Array [
   "12",
   "13",
@@ -490,7 +490,7 @@ Array [
 ]
 `;
 
-exports[`version order: firefox 1`] = `
+exports[`actual ordering: firefox 1`] = `
 Array [
   "2",
   "3",
@@ -568,7 +568,7 @@ Array [
 ]
 `;
 
-exports[`version order: ie 1`] = `
+exports[`actual ordering: ie 1`] = `
 Array [
   "6",
   "7",
@@ -580,14 +580,14 @@ Array [
 ]
 `;
 
-exports[`version order: ie_mob 1`] = `
+exports[`actual ordering: ie_mob 1`] = `
 Array [
   "10",
   "11",
 ]
 `;
 
-exports[`version order: ios_saf 1`] = `
+exports[`actual ordering: ios_saf 1`] = `
 Array [
   "8",
   "13.2",
@@ -611,19 +611,19 @@ Array [
 ]
 `;
 
-exports[`version order: kaios 1`] = `
+exports[`actual ordering: kaios 1`] = `
 Array [
   "2.5",
 ]
 `;
 
-exports[`version order: op_mini 1`] = `
+exports[`actual ordering: op_mini 1`] = `
 Array [
   "all",
 ]
 `;
 
-exports[`version order: op_mob 1`] = `
+exports[`actual ordering: op_mob 1`] = `
 Array [
   "10",
   "11",
@@ -635,7 +635,7 @@ Array [
 ]
 `;
 
-exports[`version order: opera 1`] = `
+exports[`actual ordering: opera 1`] = `
 Array [
   "9",
   "11",
@@ -699,7 +699,7 @@ Array [
 ]
 `;
 
-exports[`version order: safari 1`] = `
+exports[`actual ordering: safari 1`] = `
 Array [
   "4",
   "5",
@@ -724,7 +724,7 @@ Array [
 ]
 `;
 
-exports[`version order: samsung 1`] = `
+exports[`actual ordering: samsung 1`] = `
 Array [
   "4",
   "10.1",
