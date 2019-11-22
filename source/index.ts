@@ -11,7 +11,7 @@ const writeFile = promisify(fs.writeFile);
  * Pulls browser data from Adobe Analytics and
  * returns it in the browserslist statistics format.
  *
- * @param options - Adobe Analytics credential options.
+ * @param options - Options to use for getting the analytics data.
  * @returns Browserslist statistics data.
  */
 export default async function getBrowserslistStats(
@@ -27,7 +27,7 @@ export default async function getBrowserslistStats(
  * Pulls browser data from Adobe Anayltics and
  * writes it to file in the browserslist statistics format.
  *
- * @param options - Adobe Analytics credential options and file writing options.
+ * @param options - Options to ue for getting the analytics data and writing to file.
  */
 export async function writeBrowserslistStats(
   options: WriteOptions

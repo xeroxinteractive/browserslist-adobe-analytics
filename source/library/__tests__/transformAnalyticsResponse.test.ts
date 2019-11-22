@@ -166,8 +166,6 @@ describe('transformAnalyticsResponse', () => {
     summaryData: {
       filteredTotals: [30.0],
       totals: [30.0],
-      'col-max': [30.0],
-      'col-min': [2.0],
     },
   };
   const baseStats = getBaseStats();

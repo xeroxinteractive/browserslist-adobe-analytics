@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`hello world 1`] = `
+exports[`getBrowsersListStats 1`] = `
 Object {
   "and_chr": Object {
     "78": 0.08700757666608093,

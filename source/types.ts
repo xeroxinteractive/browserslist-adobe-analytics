@@ -1,8 +1,15 @@
 import { JWTAuthConfig } from '@adobe/jwt-auth';
+import { duration } from 'moment';
 
 export interface BaseOptions extends Omit<JWTAuthConfig, 'metaScopes'> {
   rsid: string;
   globalId: string;
+  time?: {
+    duration?: Parameters<typeof duration>;
+    from?: string;
+    until?: string;
+  };
+  limit?: number;
 }
 
 export interface WriteOptions extends BaseOptions {
@@ -63,8 +70,6 @@ export interface Row {
 export interface RankedSummaryData {
   filteredTotals: number[];
   totals: number[];
-  'col-max': number[];
-  'col-min': number[];
 }
 
 /**

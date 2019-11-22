@@ -45,6 +45,7 @@
   },
   "jest": {
     "testRunner": "jest-circus/runner",
+    "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/__tests__/__specs__/"
@@ -67,6 +68,7 @@
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
+    "mockdate": "^2.0.5",
     "prettier": "^1.19.1",
     "semantic-release": "^15.13.31",
     "semantic-release-config-xerox": "^1.1.0",
@@ -81,6 +83,7 @@
   },
   "dependencies": {
     "@adobe/jwt-auth": "^0.3.0",
+    "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "semver": "^6.3.0"
   }

@@ -1,7 +1,7 @@
 import authorize, { JWTAuthConfig } from '@adobe/jwt-auth';
 import { BaseOptions, ResponseError, RankedReportData } from '../types';
 import fetch from 'node-fetch';
-import { getRequestBody } from './getRequestBody';
+import getRequestBody from './getRequestBody';
 
 /**
  * Pulls browser data from Adobe Analytics.
@@ -12,9 +12,8 @@ import { getRequestBody } from './getRequestBody';
 export default async function getAnalyticsResponse(
   options: BaseOptions
 ): Promise<RankedReportData | undefined> {
-  const { rsid, ...jwt } = options;
   const config: JWTAuthConfig = {
-    ...jwt,
+    ...options,
     metaScopes: ['ent_analytics_bulk_ingest_sdk'],
   };
   try {
@@ -23,12 +22,12 @@ export default async function getAnalyticsResponse(
       `https://analytics.adobe.io/api/${options.globalId}/reports`,
       {
         method: 'post',
-        body: JSON.stringify(getRequestBody(rsid)),
+        body: JSON.stringify(getRequestBody(options)),
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${access_token}`,
-          'x-proxy-global-company-id': jwt.globalId,
-          'x-api-key': jwt.clientId,
+          'x-proxy-global-company-id': options.globalId,
+          'x-api-key': options.clientId,
         },
       }
     );

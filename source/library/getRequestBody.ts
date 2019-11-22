@@ -1,16 +1,53 @@
+import { BaseOptions } from 'source/types';
+import moment from 'moment';
+
+export const defaultDuration = [3, 'months'];
+
+/**
+ * Formats the time options to a date range suitable for Adobe Analytics.
+ *
+ * @param time - Time options.
+ * @returns Formatted date range.
+ */
+export function getDateRange(time: BaseOptions['time']): string {
+  const { duration = defaultDuration, from, until } = time || {};
+  let length = moment.duration(...duration);
+  let start = from
+    ? moment(from)
+    : until
+    ? moment(until).subtract(length)
+    : undefined;
+  let end = until ? moment(until) : from ? moment(from).add(length) : undefined;
+
+  if (!length.isValid()) {
+    length = moment.duration(...defaultDuration);
+  }
+
+  if (!start || !start.isValid() || !end || !end.isValid()) {
+    start = moment().subtract(length);
+    end = moment();
+  }
+  const dateRange = `${start.format('YYYY-MM-DDTHH:mm:ss.SSS')}/${end.format(
+    'YYYY-MM-DDTHH:mm:ss.SSS'
+  )}`;
+  return dateRange;
+}
+
 /**
  * Gets the request body to send to the Adobe analytics API.
  *
- * @param rsid - Adobe resource ID.
+ * @param options - Options to use for getting the analytics data.
  * @returns Request body.
  */
-export function getRequestBody(rsid: string): object {
+export default function getRequestBody(options: BaseOptions): object {
+  const { rsid, time, limit = 50 } = options;
+
   return {
     rsid,
     globalFilters: [
       {
         type: 'dateRange',
-        dateRange: '2019-10-01T00:00:00.000/2019-11-01T00:00:00.000',
+        dateRange: getDateRange(time),
       },
     ],
     metricContainer: {
@@ -24,12 +61,9 @@ export function getRequestBody(rsid: string): object {
     dimension: 'variables/browser',
     settings: {
       countRepeatInstances: true,
-      limit: 50,
+      limit,
       page: 0,
       nonesBehavior: 'return-nones',
-    },
-    statistics: {
-      functions: ['col-max', 'col-min'],
     },
   };
 }

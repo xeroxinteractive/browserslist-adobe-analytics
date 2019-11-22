@@ -269,8 +269,6 @@ const mockBrowserReport: RankedReportData = {
   summaryData: {
     filteredTotals: [2042983.0],
     totals: [2042983.0],
-    'col-max': [629603.0],
-    'col-min': [1.0],
   },
 };
 
