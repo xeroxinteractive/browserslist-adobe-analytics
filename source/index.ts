@@ -14,7 +14,7 @@ const writeFile = promisify(fs.writeFile);
  * @param options - Options to use for getting the analytics data.
  * @returns Browserslist statistics data.
  */
-export default async function getBrowserslistStats(
+export async function getBrowserslistStats(
   options: BaseOptions
 ): Promise<object | undefined> {
   const response = await getAnalyticsResponse(options);

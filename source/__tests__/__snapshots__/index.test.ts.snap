@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getBrowsersListStats 1`] = `
+exports[`getBrowserslistStats default options 1`] = `
 Object {
   "and_chr": Object {
     "78": 0.08700757666608093,
