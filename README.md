@@ -142,7 +142,7 @@ To find your `globalId` do the following:
 The time settings `duration`, `from` and `until` are all parsed with moment.js. The Node API can accept anything that [`moment.duration`](https://momentjs.com/docs/#/durations/) can accept whereas the CLI can only accept single strings so you are best using the [ISO 8601](https://www.digi.com/resources/documentation/digidocs/90001437-13/reference/r_iso_8601_duration_format.htm) format. Only one of `from` or `until` should be used, they basically define the anchor point for where the duration is added or subtracted from/to respectively.
 
 | Option | Type | Decription | Example | Default |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | clientId | `String` | Integration client ID. | `"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"` | CLI: `process.env.BAA_CLIENT_ID` NODE: `undefined` |
 | technicalAccountId | `String` | Integration technical account ID. | `"xxxxxxxxxxxxxxxxxxxxxxxx@techacct.adobe.com"` | CLI: `process.env.BAA_TECHNICAL_ACCOUNT_ID` NODE: `undefined` |
 | orgId | `String` | Integration organization ID. | `"xxxxxxxxxxxxxxxxxxxxxxxx@AdobeOrg"` | CLI: `process.env.BAA_ORG_ID` NODE: `undefined` |
@@ -160,7 +160,7 @@ The time settings `duration`, `from` and `until` are all parsed with moment.js. 
 
 #### Write Options
 | Option | Type | Decription | Example | Default |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | cwd | `String` | The current working directory to write the file in. | `"./path/to/folder"` | CLI: `process.env.BAA_CWD || process.cwd()` NODE: `process.cwd()` |
 | filename | `String` | The name of the file to write. | `"stats.json"` | CLI: `process.env.BAA_FILENAME || "browserslist-stats.json"` NODE: `"browserslist-stats.json"` |
 
