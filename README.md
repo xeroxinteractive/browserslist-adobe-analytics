@@ -16,13 +16,13 @@ You will need an Integration for Adobe Analytics as it will allow you to set up 
 1. Log in to the Adobe I/O Console: https://console.adobe.io/
 2. Navigate to the "Integrations" tab, make sure the dropdown in the top-left is set to the correct organization and select "New Integration". ![New Integration Page][new-integration-image]
 3. Go through the setup wizard selecting the following:
-    1. Q: Do you want to access an API or receive near-real time events? A: "Access an API"
-    2. Q: Select the Adobe service you wish to integrate with. A: "Experience Cloud" > "Adobe Analytics" > "Service Account Integration".
-    3. Q: Integration Details A: 
+    1. Q: "Do you want to access an API or receive near-real time events?" A: "Access an API"
+    2. Q: "Select the Adobe service you wish to integrate with" A: "Experience Cloud" > "Adobe Analytics" > "Service Account Integration"
+    3. Q: "Integration Details" A:
         * The name and description is up to you, I went with "Browserslist Integration" and "Pull Adobe Analytics data to use as custom data for browserslist."
         * For "Public keys certificates" follow https://github.com/AdobeDocs/adobeio-auth/blob/stage/AuthenticationOverview/ServiceAccountIntegration.md#step-2-create-a-public-key-certificate
-    4. Q: Select one or more product profiles for Adobe Analytics A: "Reports & Analytics Access"
-    5: Finally click "Continue to Integration Details" and you will have access to most of the information you will need to pass to browserslist-adobe-analytics.
+    4. Q: "Select one or more product profiles for Adobe Analytics" A: "Reports & Analytics Access"
+    5: Finally click "Continue to Integration Details" and you will have access to most of the information you will need to pass to browserslist-adobe-analytics
 
 ### Using this module
 browserslist-adobe-analytics is shipped as an npm module. It has 2 primary ways of usage, either via the [CLI](#cli) or via the [Node API](#node-api). Either way you will need to install it either on a per project basis or as part of a shareable config. To install the module use:
@@ -113,11 +113,11 @@ The Node API provides a more raw approach where you can retrieve a stats object 
 
 There are 2 exported methods from the primary API:
 1. `getBrowserslistStats(options)` which will return a Promise which resolves to a browserslist stats object. See [options section](#options) for more details.
-2. `writeBrowserslistStats(options)` which will return a promise which when resolved will have generated and written a `browserslist-stats.json` file assuming nothing goes wrong. See [options section](#write-options) for more details.
+2. `writeBrowserslistStats(options)` which will return a promise which when resolved will have generated and written a `browserslist-stats.json` file assuming nothing goes wrong. See [write options section](#write-options) for more details.
 
 #### Options
 
-`clientId`, `technicalId`, `orgId`, `clientSecret` can all be found on your integration details page after you have followed the steps from [Creating an Adobe Analytics Integration](#creating-an-adobe-analytics-integration).
+`clientId`, `technicalId`, `orgId` and `clientSecret` can all be found on your integration details page after you have followed the steps from [Creating an Adobe Analytics Integration](#creating-an-adobe-analytics-integration).
 
 You need to specify one of either `privateKey` or `privateKeyPath`, which should be the raw contents of the `private.key` file that you generated during the ["Creating an Adobe Analytics Integration"](#creating-an-adobe-analytics-integration) step or a path to said file. `passphrase` is optional so only pass it if you secured your public/private key with a passphrase when creating it.
 
@@ -125,7 +125,7 @@ You need to specify one of either `privateKey` or `privateKeyPath`, which should
 
 To find your `rsid` do the following:
 1. Login to Adobe Experience Cloud: https://experiencecloud.adobe.com
-2. Navigate to Adobe Analytics either in the "Quick Access" or the menu on the top nav.
+2. Navigate to Adobe Analytics either in the "Quick Access" section or the menu on the top nav.
 3. Select your report suite in the top right (the one you want to pull browser data from).
 4. Open a report e.g. "Technology: PC / Browsers".
 5. Click "Try in Workspace [NEW]" at the top of the report.
@@ -153,12 +153,13 @@ The time settings `duration`, `from` and `until` are all parsed with moment.js. 
 | ims | `String` | Identity management system ID. | `""` | CLI: `process.env.BAA_IMS` NODE: `undefined` |
 | rsid | `String` | Report Suite ID. | `"myreportsuite"` | CLI: `process.env.BAA_RSID` NODE: `undefined` |
 | globalId | `String` | Global ID. | `"company0"` | CLI: `process.env.BAA_GLOBAL_ID` NODE: `undefined` |
-| duration | `String` | Period of time to request data for. | `"P1Y"` | CLI `process.env.BAA_DURATION || "P3M"` NODE `[3, "months"]` |
+| duration | `String` | Period of time to request data for. | `"P1Y"` | CLI `process.env.BAA_DURATION` or `"P3M"` NODE `[3, "months"]` |
 | from | `String` | Date to request data from. | `"2019-10-01"` | CLI: `process.env.BAA_FROM` NODE: `undefined` |
 | until | `String` | Date to request data until. | `"2019-11-26"` | CLI: `process.env.BAA_UNTIL` or Today's date Node: Today's date |
 | limit | `Number` | The maximum number of browser entries to request. | `100` | CLI: `process.env.BAA_LIMIT` or `50` Node: `50` |
 
 #### Write Options
+These are additional options used when writing directly to a file. The [standard options](#options) also need to be specified.
 | Option | Type | Decription | Example | Default |
 | --- | --- | --- | --- | --- |
 | cwd | `String` | The current working directory to write the file in. | `"./path/to/folder"` | CLI: `process.env.BAA_CWD` or `process.cwd()` NODE: `process.cwd()` 
