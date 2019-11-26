@@ -164,9 +164,10 @@ The time settings `duration`, `from` and `until` are all parsed with moment.js. 
 
 #### Write Options
 These are additional options used when writing directly to a file. The [standard options](#options) also need to be specified.
+
 | Option | Type | Decription | Example | Default |
 | --- | --- | --- | --- | --- |
-| cwd | `String` | The current working directory to write the file in. | `"./path/to/folder"` | CLI: `process.env.BAA_CWD` or `process.cwd()` NODE: `process.cwd()` 
+| cwd | `String` | The current working directory to write the file in. | `"./path/to/folder"` | CLI: `process.env.BAA_CWD` or `process.cwd()` NODE: `process.cwd()` |
 | filename | `String` | The name of the file to write. | `"stats.json"` | CLI: `process.env.BAA_FILENAME` or `"browserslist-stats.json"` NODE: `"browserslist-stats.json"` |
 
 ## Example
