@@ -6,31 +6,31 @@ MockDate.set('2019-11-01T00:00:00.000');
 
 describe('getDateRange', () => {
   test('default', () => {
-    expect(getDateRange(undefined)).toBe(
+    expect(getDateRange(mockOptions)).toBe(
       '2019-08-01T00:00:00.000/2019-11-01T00:00:00.000'
     );
   });
 
   test('duration number, string', () => {
-    expect(getDateRange({ duration: [2, 'weeks'] })).toBe(
+    expect(getDateRange({ ...mockOptions, duration: [2, 'weeks'] })).toBe(
       '2019-10-18T00:00:00.000/2019-11-01T00:00:00.000'
     );
   });
 
   test('duration number', () => {
-    expect(getDateRange({ duration: [1000 * 60 * 60 * 24] })).toBe(
-      '2019-10-31T00:00:00.000/2019-11-01T00:00:00.000'
-    );
+    expect(
+      getDateRange({ ...mockOptions, duration: [1000 * 60 * 60 * 24] })
+    ).toBe('2019-10-31T00:00:00.000/2019-11-01T00:00:00.000');
   });
 
   test('duration string', () => {
-    expect(getDateRange({ duration: ['36:00'] })).toBe(
+    expect(getDateRange({ ...mockOptions, duration: ['36:00'] })).toBe(
       '2019-10-30T12:00:00.000/2019-11-01T00:00:00.000'
     );
   });
 
   test('duration ISO 8601', () => {
-    expect(getDateRange({ duration: ['P1Y'] })).toBe(
+    expect(getDateRange({ ...mockOptions, duration: ['P1Y'] })).toBe(
       '2018-11-01T00:00:00.000/2019-11-01T00:00:00.000'
     );
   });
@@ -38,6 +38,7 @@ describe('getDateRange', () => {
   test('duration object', () => {
     expect(
       getDateRange({
+        ...mockOptions,
         duration: [
           {
             days: 2,
@@ -51,6 +52,7 @@ describe('getDateRange', () => {
   test('duration invalid', () => {
     expect(
       getDateRange({
+        ...mockOptions,
         duration: [NaN],
       })
     ).toBe('2019-08-01T00:00:00.000/2019-11-01T00:00:00.000');
@@ -73,9 +75,7 @@ describe('getRequestBody', () => {
   });
 
   test('time', () => {
-    expect(
-      getRequestBody({ ...mockOptions, time: { duration: [1, 'month'] } })
-    ).toEqual(
+    expect(getRequestBody({ ...mockOptions, duration: [1, 'month'] })).toEqual(
       expect.objectContaining({
         globalFilters: [
           {

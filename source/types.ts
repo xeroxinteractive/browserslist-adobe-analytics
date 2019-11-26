@@ -4,11 +4,9 @@ import { duration } from 'moment';
 export interface BaseOptions extends Omit<JWTAuthConfig, 'metaScopes'> {
   rsid: string;
   globalId: string;
-  time?: {
-    duration?: Parameters<typeof duration>;
-    from?: string;
-    until?: string;
-  };
+  duration?: Parameters<typeof duration>;
+  from?: string;
+  until?: string;
   limit?: number;
 }
 

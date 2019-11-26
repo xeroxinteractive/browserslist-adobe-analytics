@@ -6,11 +6,11 @@ export const defaultDuration = [3, 'months'];
 /**
  * Formats the time options to a date range suitable for Adobe Analytics.
  *
- * @param time - Time options.
+ * @param options - Options to use for the date range.
  * @returns Formatted date range.
  */
-export function getDateRange(time: BaseOptions['time']): string {
-  const { duration = defaultDuration, from, until } = time || {};
+export function getDateRange(options: BaseOptions): string {
+  const { duration = defaultDuration, from, until } = options || {};
   let length = moment.duration(...duration);
   let start = from
     ? moment(from)
@@ -40,14 +40,14 @@ export function getDateRange(time: BaseOptions['time']): string {
  * @returns Request body.
  */
 export default function getRequestBody(options: BaseOptions): object {
-  const { rsid, time, limit = 50 } = options;
+  const { rsid, limit = 50 } = options;
 
   return {
     rsid,
     globalFilters: [
       {
         type: 'dateRange',
-        dateRange: getDateRange(time),
+        dateRange: getDateRange(options),
       },
     ],
     metricContainer: {
