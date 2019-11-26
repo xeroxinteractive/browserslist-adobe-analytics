@@ -16,13 +16,13 @@ You will need an Integration for Adobe Analytics as it will allow you to set up 
 1. Log in to the Adobe I/O Console: https://console.adobe.io/
 2. Navigate to the "Integrations" tab, make sure the dropdown in the top-left is set to the correct organization and select "New Integration". ![New Integration Page][new-integration-image]
 3. Go through the setup wizard selecting the following:
-  1. Q: Do you want to access an API or receive near-real time events? A: "Access an API"
-  2. Q: Select the Adobe service you wish to integrate with. A: "Experience Cloud" > "Adobe Analytics" > "Service Account Integration".
-  3. Q: Integration Details A: 
-    * The name and description is up to you, I went with "Browserslist Integration" and "Pull Adobe Analytics data to use as custom data for browserslist."
-    * For "Public keys certificates" follow https://github.com/AdobeDocs/adobeio-auth/blob/stage/AuthenticationOverview/ServiceAccountIntegration.md#step-2-create-a-public-key-certificate
-  4. Q: Select one or more product profiles for Adobe Analytics A: "Reports & Analytics Access"
-  5: Finally click "Continue to Integration Details" and you will have access to most of the information you will need to pass to browserslist-adobe-analytics.
+    1. Q: Do you want to access an API or receive near-real time events? A: "Access an API"
+    2. Q: Select the Adobe service you wish to integrate with. A: "Experience Cloud" > "Adobe Analytics" > "Service Account Integration".
+    3. Q: Integration Details A: 
+        * The name and description is up to you, I went with "Browserslist Integration" and "Pull Adobe Analytics data to use as custom data for browserslist."
+        * For "Public keys certificates" follow https://github.com/AdobeDocs/adobeio-auth/blob/stage/AuthenticationOverview/ServiceAccountIntegration.md#step-2-create-a-public-key-certificate
+    4. Q: Select one or more product profiles for Adobe Analytics A: "Reports & Analytics Access"
+    5: Finally click "Continue to Integration Details" and you will have access to most of the information you will need to pass to browserslist-adobe-analytics.
 
 ### Using this module
 browserslist-adobe-analytics is shipped as an npm module. It has 2 primary ways of usage, either via the [CLI](#cli) or via the [Node API](#node-api). Either way you will need to install it either on a per project basis or as part of a shareable config. To install the module use:
