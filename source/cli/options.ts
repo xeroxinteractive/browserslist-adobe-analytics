@@ -29,7 +29,7 @@ export const baseOptions: {
     alias: 'o',
     type: 'string',
     group: 'Adobe Analytics',
-    describe: 'Organization ID.',
+    describe: 'Integration organization ID.',
     demandOption: true,
   },
   clientSecret: {
@@ -43,19 +43,19 @@ export const baseOptions: {
     alias: 'pk',
     type: 'string',
     group: 'Adobe Analytics',
-    describe: 'Private key.',
+    describe: 'Integration private key.',
   },
   privateKeyPath: {
     alias: 'pkp',
     type: 'string',
     group: 'Adobe Analytics',
-    describe: 'Private key path.',
+    describe: 'Integration private key path.',
   },
   passphrase: {
     alias: 'p',
     type: 'string',
     group: 'Adobe Analytics',
-    describe: 'Passphrase for private key.',
+    describe: 'Passphrase used to secure integration public/private key.',
   },
   ims: {
     alias: 'i',
@@ -67,7 +67,7 @@ export const baseOptions: {
     alias: 'r',
     type: 'string',
     group: 'Adobe Analytics',
-    describe: 'Resource ID.',
+    describe: 'Report Suite ID.',
     demandOption: true,
   },
   globalId: {
