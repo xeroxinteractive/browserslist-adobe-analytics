@@ -66,7 +66,7 @@ describe('writeBrowserslistStats', () => {
     expect(mockWriteFile.mock.calls[0][0]).toBe(
       '/cwd/path/browserslist-stats.json'
     );
-    expect(mockWriteFile.mock.calls[0][1]).toEqual(genericStats);
+    expect(JSON.parse(mockWriteFile.mock.calls[0][1])).toEqual(genericStats);
   });
 
   test('cwd', async () => {
@@ -74,13 +74,13 @@ describe('writeBrowserslistStats', () => {
     expect(mockWriteFile.mock.calls[0][0]).toBe(
       '/new/cwd/browserslist-stats.json'
     );
-    expect(mockWriteFile.mock.calls[0][1]).toEqual(genericStats);
+    expect(JSON.parse(mockWriteFile.mock.calls[0][1])).toEqual(genericStats);
   });
 
   test('filename', async () => {
     await writeBrowserslistStats({ ...mockOptions, filename: '/stats.jsonc' });
     expect(mockWriteFile.mock.calls[0][0]).toBe('/cwd/path/stats.jsonc');
-    expect(mockWriteFile.mock.calls[0][1]).toEqual(genericStats);
+    expect(JSON.parse(mockWriteFile.mock.calls[0][1])).toEqual(genericStats);
   });
 
   test('cwd + filename', async () => {
@@ -90,6 +90,6 @@ describe('writeBrowserslistStats', () => {
       cwd: '/new/cwd',
     });
     expect(mockWriteFile.mock.calls[0][0]).toBe('/new/cwd/stats.jsonc');
-    expect(mockWriteFile.mock.calls[0][1]).toEqual(genericStats);
+    expect(JSON.parse(mockWriteFile.mock.calls[0][1])).toEqual(genericStats);
   });
 });

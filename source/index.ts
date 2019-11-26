@@ -4,6 +4,7 @@ import transformAnalyticsResponse from './library/transformAnalyticsResponse';
 import { join } from 'path';
 import fs from 'fs';
 import { promisify } from 'util';
+import { Stats } from 'browserslist';
 
 const writeFile = promisify(fs.writeFile);
 
@@ -16,7 +17,7 @@ const writeFile = promisify(fs.writeFile);
  */
 export async function getBrowserslistStats(
   options: BaseOptions
-): Promise<object | undefined> {
+): Promise<Stats | undefined> {
   const response = await getAnalyticsResponse(options);
   if (response) {
     return transformAnalyticsResponse(response);
@@ -37,5 +38,5 @@ export async function writeBrowserslistStats(
     options.cwd || process.cwd(),
     options.filename || 'browserslist-stats.json'
   );
-  await writeFile(filePath, stats);
+  await writeFile(filePath, JSON.stringify(stats, null, 2));
 }
