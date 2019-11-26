@@ -9,6 +9,10 @@
 [![semantic-release][semantic-release-badge]][semantic-release-link]
 [![Dependabot Status][dependabot-badge]][dependabot-link]
 
+browserslist-adobe-analytics provides a CLI and Node API which can pull analytics data about what browsers your users use, and convert that data into a [`browserslist-stats.json`](https://github.com/browserslist/browserslist#custom-usage-data) file so browserslist can select the appropriate browsers based on your user base. To achieve this a browser report is fetched from the Adobe Analytics API, each browser entry is then converted to the format browserslist supports.
+
+Please note that to do this browserslist-adobe-analytics uses very loose matching rules e.g: `Chrome 1.2.3` could be interpretted as `chrome 1.2.7` in browserslist land, this is so we do not ignore any data. It is better to support more browsers less accurately than less browsers more accuratly in my opinion, so please do not rely on the output to report actual browser usage.
+
 ## Setup
 __Important Note: In order to use this package an Adobe Experience Cloud account with a valid Adobe Analytics license is required. You will also need developer permissions in order to create an integration.__
 ### Creating an Adobe Analytics Integration
