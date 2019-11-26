@@ -1,4 +1,7 @@
 {
+  "bin": {
+    "baa": "./build/cli/index.js"
+  },
   "name": "browserslist-adobe-analytics",
   "version": "0.0.0",
   "description": "Use Adobe Analytics data to target browsers.",
@@ -13,7 +16,8 @@
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run build:clean && tsc --project ./tsconfig.build.json",
+    "build": "yarn run build:clean && tsc --project ./tsconfig.build.json && chmod +x ./build/cli/index.js",
+    "build:windows": "yarn run build:clean && tsc --project ./tsconfig.build.json",
     "build:clean": "rm -rf ./build",
     "test": "jest",
     "lint": "eslint ./source/ --ext .ts",
@@ -85,6 +89,8 @@
     "@adobe/jwt-auth": "^0.3.0",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
-    "semver": "^6.3.0"
+    "ora": "^4.0.3",
+    "semver": "^6.3.0",
+    "yargs": "^15.0.2"
   }
 }
