@@ -1,7 +1,9 @@
 import { JWTAuthConfig } from '@adobe/jwt-auth';
 import { duration } from 'moment';
 
-export interface BaseOptions extends Omit<JWTAuthConfig, 'metaScopes'> {
+interface BaseBaseOptions
+  extends Omit<JWTAuthConfig, 'metaScopes' | 'privateKey'> {
+  privateKeyPath?: string;
   rsid: string;
   globalId: string;
   duration?: Parameters<typeof duration>;
@@ -10,10 +12,37 @@ export interface BaseOptions extends Omit<JWTAuthConfig, 'metaScopes'> {
   limit?: number;
 }
 
-export interface WriteOptions extends BaseOptions {
+export type BaseOptionsWithPrivateKey = BaseBaseOptions & {
+  privateKey: string;
+};
+export type BaseOptionsWithPrivateKeyPath = BaseBaseOptions & {
+  privateKeyPath: string;
+};
+
+export type BaseOptions =
+  | BaseOptionsWithPrivateKey
+  | BaseOptionsWithPrivateKeyPath;
+
+/**
+ * Type guard to check if we have a private key or private key path.
+ *
+ * @param options - Options object to check.
+ * @returns Whether `privateKey` or `privateKeyPath` is present.
+ */
+export function hasPrivateKey(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options: any
+): options is BaseOptionsWithPrivateKey {
+  if (options.privateKey) {
+    return true;
+  }
+  return false;
+}
+
+export type WriteOptions = BaseOptions & {
   cwd?: string;
   filename?: string;
-}
+};
 
 export interface RankedReportData {
   totalPages: number;

@@ -1,7 +1,16 @@
 import authorize, { JWTAuthConfig } from '@adobe/jwt-auth';
-import { BaseOptions, ResponseError, RankedReportData } from '../types';
+import {
+  BaseOptions,
+  ResponseError,
+  RankedReportData,
+  hasPrivateKey,
+} from '../types';
 import fetch from 'node-fetch';
 import getRequestBody from './getRequestBody';
+import fs from 'fs';
+import { promisify } from 'util';
+
+const readFile = promisify(fs.readFile);
 
 /**
  * Pulls browser data from Adobe Analytics.
@@ -12,8 +21,18 @@ import getRequestBody from './getRequestBody';
 export default async function getAnalyticsResponse(
   options: BaseOptions
 ): Promise<RankedReportData | undefined> {
+  const privateKey =
+    (hasPrivateKey(options) && options.privateKey) ||
+    (options.privateKeyPath &&
+      (await readFile(options.privateKeyPath))?.toString());
+  if (!privateKey) {
+    throw new Error(
+      'Invalid private key either pass the raw key via `privateKey` or a path to it via `privateKeyPath`.'
+    );
+  }
   const config: JWTAuthConfig = {
     ...options,
+    privateKey,
     metaScopes: ['ent_analytics_bulk_ingest_sdk'],
   };
   try {
