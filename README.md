@@ -156,13 +156,13 @@ The time settings `duration`, `from` and `until` are all parsed with moment.js. 
 | duration | `String` | Period of time to request data for. | `"P1Y"` | CLI `process.env.BAA_DURATION || "P3M"` NODE `[3, "months"]` |
 | from | `String` | Date to request data from. | `"2019-10-01"` | CLI: `process.env.BAA_FROM` NODE: `undefined` |
 | until | `String` | Date to request data until. | `"2019-11-26"` | CLI: `process.env.BAA_UNTIL` or Today's date Node: Today's date |
-| limit | `Number` | The maximum number of browser entries to request. | `100` | CLI: `process.env.BAA_LIMIT || 50` |
+| limit | `Number` | The maximum number of browser entries to request. | `100` | CLI: `process.env.BAA_LIMIT` or `50` Node: `50` |
 
 #### Write Options
 | Option | Type | Decription | Example | Default |
 | --- | --- | --- | --- | --- |
-| cwd | `String` | The current working directory to write the file in. | `"./path/to/folder"` | CLI: `process.env.BAA_CWD || process.cwd()` NODE: `process.cwd()` |
-| filename | `String` | The name of the file to write. | `"stats.json"` | CLI: `process.env.BAA_FILENAME || "browserslist-stats.json"` NODE: `"browserslist-stats.json"` |
+| cwd | `String` | The current working directory to write the file in. | `"./path/to/folder"` | CLI: `process.env.BAA_CWD` or `process.cwd()` NODE: `process.cwd()` 
+| filename | `String` | The name of the file to write. | `"stats.json"` | CLI: `process.env.BAA_FILENAME` or `"browserslist-stats.json"` NODE: `"browserslist-stats.json"` |
 
 ## Example
 This module was built to facilitate Xerox's shareable browserslist configuration which generates a new `browserslist-stats.json` file every month based on the previous 3 months of analytics data across all the various Xerox websites. Said config is open-source and uses a CircleCi cron job to run the `baa` CLI. You can view the implementation here: https://github.com/xeroxinteractive/config/tree/master/packages/xerox-browserslist-config
