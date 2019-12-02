@@ -36,7 +36,19 @@ jest
 
 describe('getBrowserslistStats', () => {
   test('default options', async () => {
-    await expect(getBrowserslistStats(mockOptions)).resolves.toMatchSnapshot();
+    const result = await getBrowserslistStats(mockOptions);
+    expect(result).toBeTruthy();
+    expect(result).toMatchSnapshot();
+    if (result) {
+      const total = Object.values(result).reduce(
+        (bTotal, browser) =>
+          bTotal +
+          Object.values(browser).reduce((vTotal, vPart) => vTotal + vPart, 0),
+        0
+      );
+      expect(total).toBeLessThanOrEqual(100);
+      expect(total).toBeGreaterThan(90);
+    }
   });
 });
 

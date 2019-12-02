@@ -171,33 +171,29 @@ describe('transformAnalyticsResponse', () => {
   const baseStats = getBaseStats();
   test('multiple with the same version', () => {
     expect(
-      transformAnalyticsResponse({
-        ...baseResponse,
-        rows: [
-          {
-            itemId: '1',
-            value: 'Google Chrome 70.0',
-            data: [5.0],
-          },
-          {
-            itemId: '2',
-            value: 'Yandex.Browser 70.3',
-            data: [5.0],
-          },
-          {
-            itemId: '3',
-            value: 'Google Chrome 70.19.2',
-            data: [5.0],
-          },
-        ],
-      })
-    ).toEqual(
-      expect.objectContaining({
-        chrome: expect.objectContaining({
-          '70': 0.5,
-        }),
-      })
-    );
+      Math.round(
+        transformAnalyticsResponse({
+          ...baseResponse,
+          rows: [
+            {
+              itemId: '1',
+              value: 'Google Chrome 70.0',
+              data: [5.0],
+            },
+            {
+              itemId: '2',
+              value: 'Yandex.Browser 70.3',
+              data: [5.0],
+            },
+            {
+              itemId: '3',
+              value: 'Google Chrome 70.19.2',
+              data: [5.0],
+            },
+          ],
+        }).chrome['70']
+      )
+    ).toBe(50);
   });
 
   test('data does not exist', () => {
