@@ -159,7 +159,7 @@ export default function transformAnalyticsResponse(
     if (cur.value && views) {
       const { browser, version } = getBrowserVersion(cur.value, acc) || {};
       if (browser && version) {
-        acc[browser][version] += views / total;
+        acc[browser][version] += (views / total) * 100;
       }
     }
     return acc;
