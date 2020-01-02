@@ -14,10 +14,10 @@ yargs
       if (typeof key === 'string') {
         const parts = key.split(/(?=[A-Z])(?<![A-Z])/);
         const envar = ['BAA', ...parts].join('_').toUpperCase();
-        if (envar && process.env[envar]) argv[envar] = process.env[envar];
+        if (envar && process.env[envar]) argv[key] = process.env[envar];
       }
     }
-  })
+  }, true)
   // Default command to generate and print stats data.
   .command(
     '$0',
