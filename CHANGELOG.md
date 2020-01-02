@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.0...v1.0.1) (2020-01-02)
+
+
+### Bug Fixes
+
+* let errors bubble ([0ba114e](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/0ba114e))
+* middleware to run before validation ([91f5b76](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/91f5b76))
+
 # 1.0.0 (2020-01-02)
 
 
