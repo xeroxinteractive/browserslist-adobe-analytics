@@ -1,16 +1,23 @@
 {
-  "name": "@xerox/npm-typescript",
+  "bin": {
+    "baa": "./build/cli/index.js"
+  },
+  "name": "browserslist-adobe-analytics",
   "version": "0.0.0",
-  "description": "A repository template for creating npm modules with TypeScript in the @xeroxinteractive org.",
+  "description": "Use Adobe Analytics data to target browsers.",
   "keywords": [
-    "npm-typescript"
+    "browserslist",
+    "adobe analytics",
+    "custom usage data",
+    "caniuse"
   ],
   "main": "build/index.js",
-  "repository": "git@github.com:xeroxinteractive/npm-typescript.git",
+  "repository": "git@github.com:xeroxinteractive/browserslist-adobe-analytics.git",
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run build:clean && tsc --project ./tsconfig.build.json",
+    "build": "yarn run build:clean && tsc --project ./tsconfig.build.json && chmod +x ./build/cli/index.js",
+    "build:windows": "yarn run build:clean && tsc --project ./tsconfig.build.json",
     "build:clean": "rm -rf ./build",
     "test": "jest",
     "lint": "eslint ./source/ --ext .ts",
@@ -42,6 +49,7 @@
   },
   "jest": {
     "testRunner": "jest-circus/runner",
+    "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/__tests__/__specs__/"
@@ -50,16 +58,23 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
+    "@types/browserslist": "^4.4.0",
+    "@types/caniuse-lite": "^1.0.0",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.9",
+    "@types/node-fetch": "^2.5.3",
     "@xerox/commitlint-config": "^2.0.0",
     "@xerox/eslint-config": "^2.0.1",
     "@xerox/prettier-config": "^2.0.0",
     "@xerox/semantic-release-config": "^2.0.0",
+    "caniuse-lite": "^1.0.30001011",
     "eslint": "^5.16.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.19.1",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
+    "mockdate": "^2.0.5",
     "prettier": "^1.19.1",
     "semantic-release": "^15.13.31",
     "semantic-release-config-xerox": "^1.1.0",
@@ -71,5 +86,14 @@
     "mem": ">=4.0.0",
     "https-proxy-agent": ">=2.2.3",
     "handlebars": ">=4.5.2"
+  },
+  "dependencies": {
+    "@adobe/jwt-auth": "^0.3.1",
+    "browserslist": "^4.8.2",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "ora": "^4.0.3",
+    "semver": "^6.3.0",
+    "yargs": "^15.0.2"
   }
 }

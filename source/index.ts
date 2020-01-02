@@ -1,8 +1,42 @@
+import { BaseOptions, WriteOptions } from './types';
+import getAnalyticsResponse from './library/getAnalyticsResponse';
+import transformAnalyticsResponse from './library/transformAnalyticsResponse';
+import { join } from 'path';
+import fs from 'fs';
+import { promisify } from 'util';
+import { Stats } from 'browserslist';
+
+const writeFile = promisify(fs.writeFile);
+
 /**
- * Hello World.
+ * Pulls browser data from Adobe Analytics and
+ * returns it in the browserslist statistics format.
  *
- * @returns The literal 'Hello World!'.
+ * @param options - Options to use for getting the analytics data.
+ * @returns Browserslist statistics data.
  */
-export default function(): string {
-  return 'Hello World!';
+export async function getBrowserslistStats(
+  options: BaseOptions
+): Promise<Stats | undefined> {
+  const response = await getAnalyticsResponse(options);
+  if (response) {
+    return transformAnalyticsResponse(response);
+  }
+}
+
+/**
+ * Pulls browser data from Adobe Anayltics and
+ * writes it to file in the browserslist statistics format.
+ *
+ * @param options - Options to ue for getting the analytics data and writing to file.
+ */
+export async function writeBrowserslistStats(
+  options: WriteOptions
+): Promise<void> {
+  const stats = await getBrowserslistStats(options);
+  const filePath = join(
+    options.cwd || process.cwd(),
+    options.filename || 'browserslist-stats.json'
+  );
+  await writeFile(filePath, JSON.stringify(stats, null, 2));
 }
