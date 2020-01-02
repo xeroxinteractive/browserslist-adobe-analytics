@@ -35,7 +35,7 @@ jobs:
           at: ~/repo
       - add_ssh_keys:
           fingerprints:
-            - 'xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx'
+            - '68:c9:7c:cc:18:d6:5f:43:ec:14:1c:f1:78:d8:f4:06'
       - run:
           name: Configure git
           command: |
@@ -51,11 +51,11 @@ workflows:
   install_lint_deploy:
     jobs:
       - install_lint_test
-      # - deploy:
-      #     context: npm
-      #     requires:
-      #       - install_lint_test
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
+      - deploy:
+          context: npm
+          requires:
+            - install_lint_test
+          filters:
+            branches:
+              only:
+                - master
