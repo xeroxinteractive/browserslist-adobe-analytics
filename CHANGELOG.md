@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.1...v1.0.2) (2020-01-02)
+
+
+### Bug Fixes
+
+* **cli:** proper exit codes ([ddf498c](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/ddf498c))
+
 ## [1.0.1](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.0...v1.0.1) (2020-01-02)
 
 
