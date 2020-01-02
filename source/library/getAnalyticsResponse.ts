@@ -35,26 +35,22 @@ export default async function getAnalyticsResponse(
     privateKey,
     metaScopes: ['ent_analytics_bulk_ingest_sdk'],
   };
-  try {
-    const { access_token } = await authorize(config);
-    const response = await fetch(
-      `https://analytics.adobe.io/api/${options.globalId}/reports`,
-      {
-        method: 'post',
-        body: JSON.stringify(getRequestBody(options)),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${access_token}`,
-          'x-proxy-global-company-id': options.globalId,
-          'x-api-key': options.clientId,
-        },
-      }
-    );
-    if (!response.ok) {
-      throw new ResponseError(response.statusText, response.status);
+  const { access_token } = await authorize(config);
+  const response = await fetch(
+    `https://analytics.adobe.io/api/${options.globalId}/reports`,
+    {
+      method: 'post',
+      body: JSON.stringify(getRequestBody(options)),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${access_token}`,
+        'x-proxy-global-company-id': options.globalId,
+        'x-api-key': options.clientId,
+      },
     }
-    return await response.json();
-  } catch (e) {
-    console.error(e);
+  );
+  if (!response.ok) {
+    throw new ResponseError(response.statusText, response.status);
   }
+  return await response.json();
 }
