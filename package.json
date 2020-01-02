@@ -69,6 +69,8 @@
     "@xerox/semantic-release-config": "^2.0.0",
     "caniuse-lite": "^1.0.30001011",
     "eslint": "^5.16.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.19.1",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "jest-circus": "^24.9.0",
@@ -86,7 +88,8 @@
     "handlebars": ">=4.5.2"
   },
   "dependencies": {
-    "@adobe/jwt-auth": "^0.3.0",
+    "@adobe/jwt-auth": "^0.3.1",
+    "browserslist": "^4.8.2",
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",

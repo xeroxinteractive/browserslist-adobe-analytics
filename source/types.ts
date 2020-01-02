@@ -1,12 +1,12 @@
 import { JWTAuthConfig } from '@adobe/jwt-auth';
-import { duration } from 'moment';
+import moment from 'moment';
 
 interface BaseBaseOptions
   extends Omit<JWTAuthConfig, 'metaScopes' | 'privateKey'> {
   privateKeyPath?: string;
   rsid: string;
   globalId: string;
-  duration?: Parameters<typeof duration>;
+  duration?: Parameters<typeof moment.duration>;
   from?: string;
   until?: string;
   limit?: number;
