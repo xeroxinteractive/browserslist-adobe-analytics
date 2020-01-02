@@ -31,9 +31,11 @@ yargs
         const stats = await getBrowserslistStats(args);
         spinner.succeed();
         console.log(JSON.stringify(stats, null, 2));
+        process.exitCode = 0;
       } catch (e) {
         spinner.fail();
         console.error(e);
+        process.exitCode = 1;
       }
     }
   )
@@ -49,9 +51,11 @@ yargs
       try {
         await writeBrowserslistStats(args);
         spinner.succeed();
+        process.exitCode = 0;
       } catch (e) {
         spinner.fail();
         console.error(e);
+        process.exitCode = 1;
       }
     }
   )
