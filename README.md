@@ -184,10 +184,10 @@ This module was built to facilitate Xerox's shareable browserslist configuration
 [circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/browserslist-adobe-analytics/master
 [circleci-link]: https://circleci.com/gh/xeroxinteractive/browserslist-adobe-analytics/tree/master
 
-[npm-badge]: https://flat.badgen.net/npm/v/@xerox/browserslist-adobe-analytics?color=cyan
-[npm-link]: https://www.npmjs.com/package/@xerox/browserslist-adobe-analytics
+[npm-badge]: https://flat.badgen.net/npm/v/browserslist-adobe-analytics?color=cyan
+[npm-link]: https://www.npmjs.com/package/browserslist-adobe-analytics
 
-[license-badge]: https://flat.badgen.net/npm/license/@xerox/browserslist-adobe-analytics
+[license-badge]: https://flat.badgen.net/npm/license/browserslist-adobe-analytics
 
 [commit-style-badge]: https://flat.badgen.net/badge/commit%20style/angular/purple
 [commit-style-link]: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines
