@@ -3,7 +3,7 @@
     "baa": "./build/cli/index.js"
   },
   "name": "browserslist-adobe-analytics",
-  "version": "0.0.0",
+  "version": "1.0.2",
   "description": "Use Adobe Analytics data to target browsers.",
   "keywords": [
     "browserslist",
