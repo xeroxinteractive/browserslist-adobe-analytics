@@ -61,7 +61,7 @@
     "@types/browserslist": "^4.4.0",
     "@types/caniuse-lite": "^1.0.0",
     "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.9",
+    "@types/node": "^13.1.4",
     "@types/node-fetch": "^2.5.3",
     "@xerox/commitlint-config": "^2.0.0",
     "@xerox/eslint-config": "^2.0.1",
