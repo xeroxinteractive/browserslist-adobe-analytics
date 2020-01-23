@@ -73,13 +73,13 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.19.1",
     "husky": "^4.0.1",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "jest-circus": "^25.1.0",
     "mockdate": "^2.0.5",
     "prettier": "^1.19.1",
     "semantic-release": "^15.13.31",
     "semantic-release-config-xerox": "^1.1.0",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^25.0.0",
     "typescript": "^3.7.2"
   },
   "resolutions": {
