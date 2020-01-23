@@ -26,12 +26,10 @@ install_lint_test: &install_lint_test
 
 jobs:
   install_lint_test-node10:
-    context: node-10
     docker:
       - image: circleci/node:10
     <<: [*defaults, *install_lint_test]
   install_lint_test-node12:
-    context: node-12
     docker:
       - image: circleci/node:12
     <<: [*defaults, *install_lint_test]
@@ -60,8 +58,10 @@ workflows:
   version: 2
   install_lint_deploy:
     jobs:
-      - install_lint_test-node10
-      - install_lint_test-node12
+      - install_lint_test-node10:
+          context: node-10
+      - install_lint_test-node12:
+          context: node-12
       - deploy:
           context: npm
           requires:
