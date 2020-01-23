@@ -59,9 +59,9 @@ workflows:
   install_lint_deploy:
     jobs:
       - install_lint_test-node10:
-          context: node-10
+          context: node10
       - install_lint_test-node12:
-          context: node-12
+          context: node12
       - deploy:
           context: npm
           requires:
