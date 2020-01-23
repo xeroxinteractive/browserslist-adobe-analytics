@@ -26,19 +26,18 @@ install_lint_test: &install_lint_test
 
 jobs:
   install_lint_test-node10:
-    environment:
-      - NODE_VERSION: '10'
+    context: node-10
     docker:
       - image: circleci/node:10
     <<: [*defaults, *install_lint_test]
   install_lint_test-node12:
-    environment:
-      - NODE_VERSION: '12'
+    context: node-12
     docker:
       - image: circleci/node:12
     <<: [*defaults, *install_lint_test]
 
   deploy:
+    context: npm
     <<: *defaults
     docker:
       - image: circleci/node:12
