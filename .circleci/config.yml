@@ -2,31 +2,43 @@ version: 2
 
 defaults: &defaults
   working_directory: ~/repo
-  docker:
-    - image: circleci/node:10.14.1
   resource_class: small
 
+install_lint_test: &install_lint_test
+  steps:
+    - checkout
+    - restore_cache:
+        keys:
+          - node-{{ .Environment.NODE_VERSION }}-cache-{{ checksum "./yarn.lock" }}
+    - run: yarn install
+    - run: yarn lint
+    - run: yarn type-check
+    - run: yarn test
+    - save_cache:
+        key: node-{{ .Environment.NODE_VERSION }}-cache-{{ checksum "./yarn.lock" }}
+        paths:
+          - ~/.yarn-cache
+          - ./node_modules
+    - persist_to_workspace:
+        root: ~/repo
+        paths:
+          - ./
+
 jobs:
-  install_lint_test:
+  install_lint_test-node10:
+    environment:
+      NODE_VERSION: '10'
     <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - node-10-cache-{{ checksum "./yarn.lock" }}
-      - run: yarn install
-      - run: yarn lint
-      - run: yarn type-check
-      - run: yarn test
-      - save_cache:
-          key: node-10-cache-{{ checksum "./yarn.lock" }}
-          paths:
-            - ~/.yarn-cache
-            - ./node_modules
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - ./
+    docker:
+      - image: circleci/node:10
+    <<: *install_lint_test
+  install_lint_test-node12:
+    environment:
+      NODE_VERSION: '12'
+    <<: *defaults
+    docker:
+      - image: circleci/node:12
+    <<: *install_lint_test
 
   deploy:
     <<: *defaults
@@ -50,11 +62,13 @@ workflows:
   version: 2
   install_lint_deploy:
     jobs:
-      - install_lint_test
+      - install_lint_test-node10
+      - install_lint_test-node12
       - deploy:
           context: npm
           requires:
-            - install_lint_test
+            - install_lint_test-node10
+            - install_lint_test-node12
           filters:
             branches:
               only:
