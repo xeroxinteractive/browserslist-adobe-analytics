@@ -37,7 +37,6 @@ jobs:
     <<: [*defaults, *install_lint_test]
 
   deploy:
-    context: npm
     <<: *defaults
     docker:
       - image: circleci/node:12
