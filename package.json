@@ -74,7 +74,7 @@
     "eslint-plugin-import": "^2.19.1",
     "husky": "^4.0.1",
     "jest": "^24.9.0",
-    "jest-circus": "^24.9.0",
+    "jest-circus": "^25.1.0",
     "mockdate": "^2.0.5",
     "prettier": "^1.19.1",
     "semantic-release": "^15.13.31",
