@@ -26,6 +26,9 @@
     "deploy": "semantic-release",
     "prepublishOnly": "yarn run build"
   },
+  "engines": {
+    "node": ">=10 <=12"
+  },
   "browserslist": [
     "current node"
   ],
@@ -60,32 +63,35 @@
     "@commitlint/cli": "^8.2.0",
     "@types/browserslist": "^4.4.0",
     "@types/caniuse-lite": "^1.0.0",
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.9",
+    "@types/jest": "^25.1.1",
+    "@types/node": "^13.1.4",
     "@types/node-fetch": "^2.5.3",
+    "@types/semver": "^7.1.0",
     "@xerox/commitlint-config": "^2.0.0",
     "@xerox/eslint-config": "^2.0.1",
     "@xerox/prettier-config": "^2.0.0",
     "@xerox/semantic-release-config": "^2.0.0",
     "caniuse-lite": "^1.0.30001011",
-    "eslint": "^5.16.0",
+    "eslint": "^6.8.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.19.1",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "jest-circus": "^24.9.0",
+    "husky": "^4.0.1",
+    "jest": "^25.1.0",
+    "jest-circus": "^25.1.0",
     "mockdate": "^2.0.5",
     "prettier": "^1.19.1",
     "semantic-release": "^15.13.31",
     "semantic-release-config-xerox": "^1.1.0",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^25.1.0",
     "typescript": "^3.7.2"
   },
   "resolutions": {
     "set-value": ">=2.0.1",
     "mem": ">=4.0.0",
     "https-proxy-agent": ">=2.2.3",
-    "handlebars": ">=4.5.2"
+    "handlebars": ">=4.5.2",
+    "acorn": ">=7.1.1",
+    "kind-of": ">=6.0.3"
   },
   "dependencies": {
     "@adobe/jwt-auth": "^0.3.1",
@@ -93,7 +99,7 @@
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",
-    "semver": "^6.3.0",
+    "semver": "^7.1.1",
     "yargs": "^15.0.2"
   }
 }
