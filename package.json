@@ -68,7 +68,7 @@
     "@types/node-fetch": "^2.5.3",
     "@types/semver": "^7.1.0",
     "@xerox/commitlint-config": "^2.0.0",
-    "@xerox/eslint-config": "^2.0.1",
+    "@xerox/eslint-config": "^3.0.1",
     "@xerox/prettier-config": "^2.0.0",
     "@xerox/semantic-release-config": "^2.2.1",
     "caniuse-lite": "^1.0.30001011",
