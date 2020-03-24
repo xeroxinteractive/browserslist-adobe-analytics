@@ -15,10 +15,14 @@ export default function getBaseStats(): Stats {
     if (agent) {
       stats[browser] = Object.entries(agent.release_date)
         .sort((a, b) => {
-          if (a[1] === undefined || a[1] === null) {
+          if (a[1] === b[1]) {
+            return 0;
+          } else if (typeof a[1] === 'undefined' || a[1] === null) {
             return 1;
-          } else if (b[1] === undefined || b[1] === null) {
+          } else if (typeof b[1] === 'undefined' || b[1] === null) {
             return -1;
+          } else if (typeof a[1] === 'string' || typeof b[1] === 'string') {
+            return a[1].toString().localeCompare(b[1].toString());
           } else {
             return b[1] - a[1];
           }
