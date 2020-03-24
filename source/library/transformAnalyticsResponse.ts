@@ -58,10 +58,7 @@ export function findVersion(
   // If we don't find a version try fallback to minor/major version.
   // This allows use to match things like 8.2.2 -> 8.2.1, which again is
   // not technically accurate but we are trying to find the closest value.
-  const cascade = version
-    .split('.')
-    .slice(0, -1)
-    .join('.');
+  const cascade = version.split('.').slice(0, -1).join('.');
   if (cascade) {
     return findVersion(cascade, possibleVersions);
   }
