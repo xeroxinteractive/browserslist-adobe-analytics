@@ -63,8 +63,8 @@
     "@commitlint/cli": "^8.2.0",
     "@types/browserslist": "^4.4.0",
     "@types/caniuse-lite": "^1.0.0",
-    "@types/jest": "^25.1.1",
-    "@types/node": "^13.1.4",
+    "@types/jest": "^25.2.2",
+    "@types/node": "^12.12.39",
     "@types/node-fetch": "^2.5.3",
     "@types/semver": "^7.1.0",
     "@xerox/commitlint-config": "^2.1.1",
@@ -76,12 +76,12 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.19.1",
     "husky": "^4.0.1",
-    "jest": "^25.1.0",
-    "jest-circus": "^25.1.0",
+    "jest": "^26.0.1",
+    "jest-circus": "^26.0.1",
     "mockdate": "^2.0.5",
     "prettier": "^2.0.2",
     "semantic-release": "^17.0.4",
-    "ts-jest": "^25.1.0",
+    "ts-jest": "^26.0.0",
     "typescript": "^3.7.2"
   },
   "resolutions": {
@@ -91,12 +91,14 @@
     "handlebars": ">=4.5.2",
     "acorn": ">=7.1.1",
     "kind-of": ">=6.0.3",
-    "minimist": ">=1.2.3"
+    "minimist": ">=1.2.3",
+    "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
+    "@types/node": "^12.12.39"
   },
   "dependencies": {
     "@adobe/jwt-auth": "^0.3.1",
     "browserslist": "^4.8.2",
-    "moment": "^2.24.0",
+    "moment": "^2.25.1",
     "node-fetch": "^2.6.0",
     "ora": "^4.0.3",
     "semver": "^7.1.1",
