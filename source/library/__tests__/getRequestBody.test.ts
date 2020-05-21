@@ -1,6 +1,6 @@
 import getRequestBody, { getDateRange } from '../getRequestBody';
 import mockOptions from '../../__specs__/options';
-import MockDate from 'mockdate';
+import * as MockDate from 'mockdate';
 
 MockDate.set('2019-11-01T00:00:00.000');
 
