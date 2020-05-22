@@ -6,7 +6,7 @@ import authenticate from '@adobe/jwt-auth';
 import mockBrowserReport from '../../__specs__/browser-report';
 import mockOptions from '../../__specs__/options';
 import * as util from 'util';
-import * as MockDate from 'mockdate';
+import MockDate from 'mockdate';
 // eslint-disable-next-line jest/no-mocks-import
 import { FetchError } from '../../__mocks__/node-fetch';
 import { ResponseError } from '../../types';
