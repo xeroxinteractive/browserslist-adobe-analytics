@@ -30,10 +30,9 @@ export type BaseOptions =
  * @returns Whether `privateKey` or `privateKeyPath` is present.
  */
 export function hasPrivateKey(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options: any
+  options: BaseOptions
 ): options is BaseOptionsWithPrivateKey {
-  if (options.privateKey) {
+  if ((options as BaseOptionsWithPrivateKey).privateKey) {
     return true;
   }
   return false;
@@ -52,7 +51,7 @@ export interface RankedReportData {
   number: number;
   totalElements: number;
   message?: string;
-  request?: object;
+  request?: Record<string, unknown>;
   columns: RankedColumnMetaData;
   rows: Row[];
   summaryData: RankedSummaryData;
@@ -117,4 +116,33 @@ export class ResponseError extends Error {
     Object.setPrototypeOf(this, new.target.prototype);
     Error.captureStackTrace(this, this.constructor);
   }
+}
+
+export interface RequestBody {
+  rsid: string;
+  globalFilters: AAFilter[];
+  metricContainer: {
+    metrics: AAMetric[];
+  };
+  dimension: string;
+  settings: AASettings;
+}
+
+export type AAFilter = AADateFilter;
+
+export interface AADateFilter {
+  type: 'dateRange';
+  dateRange: string;
+}
+
+export interface AAMetric {
+  columnId: string;
+  id: string;
+}
+
+export interface AASettings {
+  countRepeatInstances: boolean;
+  limit: number;
+  page: number;
+  nonesBehavior: 'return-nones';
 }

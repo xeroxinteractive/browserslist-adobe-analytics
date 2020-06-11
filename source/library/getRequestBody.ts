@@ -1,4 +1,4 @@
-import { BaseOptions } from 'source/types';
+import { BaseOptions, RequestBody } from 'source/types';
 import moment from 'moment';
 
 export const defaultDuration = [3, 'months'];
@@ -39,7 +39,7 @@ export function getDateRange(options: BaseOptions): string {
  * @param options - Options to use for getting the analytics data.
  * @returns Request body.
  */
-export default function getRequestBody(options: BaseOptions): object {
+export default function getRequestBody(options: BaseOptions): RequestBody {
   const { rsid, limit = 50 } = options;
 
   return {
