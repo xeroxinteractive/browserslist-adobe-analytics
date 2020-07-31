@@ -23,7 +23,7 @@
     "lint": "eslint ./source/ --ext .ts",
     "type-check": "tsc",
     "format": "yarn run lint --fix",
-    "deploy": "semantic-release",
+    "deploy": "semantic-release --branches release",
     "prepublishOnly": "yarn run build"
   },
   "engines": {
@@ -45,7 +45,7 @@
     ]
   },
   "release": {
-    "extends": "@xerox/semantic-release-config/npm"
+    "extends": "@xerox/semantic-release-config/npm-next"
   },
   "publishConfig": {
     "access": "public"

@@ -2,7 +2,7 @@
 
 > Use Adobe Analytics data to target browsers.
 
-[![circleci status][circleci-badge]][circleci-link]
+[![ci status][ci-badge]][ci-link]
 [![npm package][npm-badge]][npm-link]
 [![license MIT][license-badge]][license]
 [![commit style angular][commit-style-badge]][commit-style-link]
@@ -181,8 +181,8 @@ This module was built to facilitate Xerox's shareable browserslist configuration
 [changelog]: ./CHANGELOG.md
 [issues]: https://github.com/xeroxinteractive/browserslist-adobe-analytics/issues
 
-[circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/browserslist-adobe-analytics/master
-[circleci-link]: https://circleci.com/gh/xeroxinteractive/browserslist-adobe-analytics/tree/master
+[ci-badge]: https://flat.badgen.net/github/checks/xeroxinteractive/browserslist-adobe-analytics/release?label=ci
+[ci-link]: https://github.com/xeroxinteractive/browserslist-adobe-analytics/actions?query=branch%3Arelease
 
 [npm-badge]: https://flat.badgen.net/npm/v/browserslist-adobe-analytics?color=cyan
 [npm-link]: https://www.npmjs.com/package/browserslist-adobe-analytics
