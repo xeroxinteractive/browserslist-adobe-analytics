@@ -78,6 +78,7 @@
     "husky": "^4.0.1",
     "jest": "^26.0.1",
     "jest-circus": "^26.0.1",
+    "jest-package-audit": "^3.1.2",
     "mockdate": "^3.0.0",
     "prettier": "^2.0.2",
     "semantic-release": "^17.0.4",
@@ -93,7 +94,8 @@
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
-    "@types/node": "^12.12.39"
+    "@types/node": "^12.12.39",
+    "dot-prop": ">=5.1.1"
   },
   "dependencies": {
     "@adobe/jwt-auth": "^0.3.1",
