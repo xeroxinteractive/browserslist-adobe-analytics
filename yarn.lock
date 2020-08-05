@@ -1243,9 +1243,9 @@
     eslint-plugin-react "^7.20.0"
 
 "@xerox/prettier-config@^2.2.1":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@xerox/prettier-config/-/prettier-config-2.2.2.tgz#8aa6f147b453df8d13508c5c47fd3ea68411ba67"
-  integrity sha512-sess42cMm+G4VMQqNoDImm8Ak4zeStmcWaQpwLs2hf3iUjN5wdMzvqyr49EXHPzNKxICCOSgZr8afU/E04jCnw==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@xerox/prettier-config/-/prettier-config-2.2.3.tgz#5eadb615de81de2efc9264e003f91c99021cd11e"
+  integrity sha512-VrbUQeFcRkPo5Libq7dHV6NAb1od/f/tex/O8DP3xmArOFdXWrIutSlGWAwx9vzkO2rbaOX+XJ0F8LyJ2rOsYQ==
 
 "@xerox/semantic-release-config@^2.2.2":
   version "2.3.1"
@@ -1933,9 +1933,9 @@ camelcase@^6.0.0:
   integrity sha512-8KMDF1Vz2gzOq54ONPJS65IvTUaB1cHJ2DMM7MbPmLZljDH1qpzzLsWdiN9pHh6qvkRVDTi/07+eNGch/oLU4w==
 
 caniuse-lite@^1.0.30001011, caniuse-lite@^1.0.30001093:
-  version "1.0.30001109"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001109.tgz#a9f3f26a0c3753b063d7acbb48dfb9c0e46f2b19"
-  integrity sha512-4JIXRodHzdS3HdK8nSgIqXYLExOvG+D2/EenSvcub2Kp3QEADjo2v2oUn5g0n0D+UNwG9BtwKOyGcSq2qvQXvQ==
+  version "1.0.30001110"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001110.tgz#9003e3c7f5a43ea6f1193d4d5acba0bfb152c71a"
+  integrity sha512-KqJWeat4rhSHF0ito4yz9q/JuZHkvn71SsBnxge4azjPDbowIjOUnS8i1xpKGxZxU6BFiPqO2hSV2eiCpFQVRw==
 
 capture-exit@^2.0.0:
   version "2.0.0"
