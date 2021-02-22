@@ -28,8 +28,6 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.node-version }}-yarn-
       - run: yarn install
       - run: yarn lint
       - run: yarn type-check
