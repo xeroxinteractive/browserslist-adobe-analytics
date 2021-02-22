@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.7...v1.1.0) (2020-11-03)
+
+
+### Features
+
+* node 14 ([c4f3da1](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/c4f3da1))
+
 ## [1.0.7](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.6...v1.0.7) (2020-07-31)
 
 ## [1.0.6](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.5...v1.0.6) (2020-05-16)
