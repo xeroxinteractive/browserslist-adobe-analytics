@@ -1,6 +1,6 @@
-import { BaseOptions } from '../types';
+import { BaseOptionsWithPrivateKey } from '../types';
 
-const options: BaseOptions = {
+const options: BaseOptionsWithPrivateKey = {
   rsid: '---rsid---',
   globalId: '---global-id---',
   clientId: '---client-id---',

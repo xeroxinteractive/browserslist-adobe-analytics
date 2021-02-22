@@ -39,16 +39,16 @@ describe('getBrowserslistStats', () => {
     const result = await getBrowserslistStats(mockOptions);
     expect(result).toBeTruthy();
     expect(result).toMatchSnapshot();
-    if (result) {
-      const total = Object.values(result).reduce(
+    const total =
+      result &&
+      Object.values(result).reduce(
         (bTotal, browser) =>
           bTotal +
           Object.values(browser).reduce((vTotal, vPart) => vTotal + vPart, 0),
         0
       );
-      expect(total).toBeLessThanOrEqual(100);
-      expect(total).toBeGreaterThan(90);
-    }
+    expect(total).toBeLessThanOrEqual(100);
+    expect(total).toBeGreaterThan(90);
   });
 });
 
