@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.1.0...v1.1.1) (2021-02-22)
+
+
+### Bug Fixes
+
+* open up node versions ([a160eb1](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/a160eb1))
+
 # [1.1.0](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.7...v1.1.0) (2020-11-03)
 
 
