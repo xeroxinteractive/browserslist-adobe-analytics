@@ -98,7 +98,7 @@
     "dot-prop": ">=5.1.1"
   },
   "dependencies": {
-    "@adobe/jwt-auth": "^0.3.1",
+    "@adobe/jwt-auth": "^1.0.0",
     "browserslist": "^4.8.2",
     "moment": "^2.25.1",
     "node-fetch": "^2.6.0",
