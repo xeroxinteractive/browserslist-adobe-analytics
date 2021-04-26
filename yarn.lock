@@ -3,9 +3,9 @@
 
 
 "@adobe/jwt-auth@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@adobe/jwt-auth/-/jwt-auth-1.0.0.tgz#8bc92566f203838cf7e39a8de135d7d707117f26"
-  integrity sha512-F0LiSKvczCqQKPYz8j8nVD9P0if9UCMe3y0dUJyMhzvozYgpJjhgw0FQFd4JuP45F18z+hGPY+UW3lbuVk1gUQ==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@adobe/jwt-auth/-/jwt-auth-1.0.1.tgz#08be382b4ce19970e8287512986dd5d4c6b327fd"
+  integrity sha512-zUTOuFiUzT30luiyCga6oV3FJGxSibVNvRTLrYea/f6rowMLaAic8IWT8uhln13ZUdA7pTpSll5GsBcG2ZyBuQ==
   dependencies:
     form-data "^3.0.0"
     jsonwebtoken "^8.5.1"
