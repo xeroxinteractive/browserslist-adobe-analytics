@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adobe/jwt-auth@^0.3.1":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@adobe/jwt-auth/-/jwt-auth-0.3.3.tgz#67595c5eb31e1d8ea1987d2ed291449834cc27bb"
-  integrity sha512-vrxL6Efq76WLp9EnSX6j3K/TFlp7exVlmY4FfRcKMHJ0icSqHmXKR21jUZpLmZmTkujrjiqbIWwnh/pE0Vlh5A==
+"@adobe/jwt-auth@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@adobe/jwt-auth/-/jwt-auth-1.0.0.tgz#8bc92566f203838cf7e39a8de135d7d707117f26"
+  integrity sha512-F0LiSKvczCqQKPYz8j8nVD9P0if9UCMe3y0dUJyMhzvozYgpJjhgw0FQFd4JuP45F18z+hGPY+UW3lbuVk1gUQ==
   dependencies:
     form-data "^3.0.0"
     jsonwebtoken "^8.5.1"
