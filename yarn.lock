@@ -1505,9 +1505,9 @@
     browserslist "*"
 
 "@types/caniuse-lite@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@types/caniuse-lite/-/caniuse-lite-1.0.0.tgz#6506ed4b3f8d19def130d19419062960e86cc3bc"
-  integrity sha512-g28510gzJpFL0xqvuGAlI+dfIr3qvUcZQVFc7f7u2VlWVqI1oBkWhGLYh3fXfoflR7HRnU4w0NRux0pPJQ7VVg==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/caniuse-lite/-/caniuse-lite-1.0.1.tgz#368292d5d28268cb7917b9178fcdd500df22d64a"
+  integrity sha512-enW8d/vdojHAhr1C/0BqsNkhz/0ik2WCuAJIp9EClP+mHkR8xXBJ2OGeXHZ6cPqDjVKvWBRe9tY/Nr9r4yQSuA==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
