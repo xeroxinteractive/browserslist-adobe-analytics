@@ -1,5 +1,6 @@
-# [1.1.0](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.7...v1.1.0) (2020-11-03)
+# browserslist-adobe-analytics
 
+## [1.1.0](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.7...v1.1.0) (2020-11-03)
 
 ### Features
 
@@ -11,13 +12,11 @@
 
 ## [1.0.5](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.4...v1.0.5) (2020-03-24)
 
-
 ### Bug Fixes
 
 * node 10-12 sorting regression ([eeb85db](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/eeb85db))
 
 ## [1.0.4](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.3...v1.0.4) (2020-03-09)
-
 
 ### Bug Fixes
 
@@ -27,13 +26,11 @@
 
 ## [1.0.2](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.1...v1.0.2) (2020-01-02)
 
-
 ### Bug Fixes
 
 * **cli:** proper exit codes ([ddf498c](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/ddf498c))
 
 ## [1.0.1](https://github.com/xeroxinteractive/browserslist-adobe-analytics/compare/v1.0.0...v1.0.1) (2020-01-02)
-
 
 ### Bug Fixes
 
@@ -42,11 +39,9 @@
 
 # 1.0.0 (2020-01-02)
 
-
 ### Bug Fixes
 
 * stats should be out of 100 not 1 ([e55ea9f](https://github.com/xeroxinteractive/browserslist-adobe-analytics/commit/e55ea9f))
-
 
 ### Features
 
