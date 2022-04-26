@@ -1,12 +1,15 @@
 {
-  "name": "@xeroxinteractive/browserslist",
+  "name": "browserslist-tools",
   "version": "0.0.0",
   "description": "Monorepo for Xerox browserslist tools.",
   "keywords": [
     "browserslist",
-    "monorepo"
+    "monorepo",
+    "tools",
+    "adobe",
+    "analytics"
   ],
-  "repository": "git@github.com:xeroxinteractive/browserslist.git",
+  "repository": "git@github.com:xeroxinteractive/browserslist-tools.git",
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
   "scripts": {

@@ -2,12 +2,8 @@
 
 > Use Adobe Analytics data to target browsers.
 
-[![ci status][ci-badge]][ci-link]
 [![npm package][npm-badge]][npm-link]
 [![license MIT][license-badge]][license]
-[![commit style angular][commit-style-badge]][commit-style-link]
-[![semantic-release][semantic-release-badge]][semantic-release-link]
-[![Dependabot Status][dependabot-badge]][dependabot-link]
 
 browserslist-adobe-analytics provides a CLI and Node API which can pull analytics data about what browsers your users use, and convert that data into a [`browserslist-stats.json`](https://github.com/browserslist/browserslist#custom-usage-data) file so browserslist can select the appropriate browsers based on your user base. To achieve this a browser report is fetched from the Adobe Analytics API, each browser entry is then converted to the format browserslist supports.
 
@@ -189,24 +185,12 @@ Run `nx test adobe-analytics` to execute the unit tests via [Jest](https://jestj
 
 [license]: ./LICENSE
 [changelog]: ./CHANGELOG.md
-[issues]: https://github.com/xeroxinteractive/browserslist-adobe-analytics/issues
-
-[ci-badge]: https://flat.badgen.net/github/checks/xeroxinteractive/browserslist-adobe-analytics/release?label=ci
-[ci-link]: https://github.com/xeroxinteractive/browserslist-adobe-analytics/actions?query=branch%3Arelease
+[issues]: https://github.com/xeroxinteractive/browserslist-tools/issues
 
 [npm-badge]: https://flat.badgen.net/npm/v/browserslist-adobe-analytics?color=cyan
 [npm-link]: https://www.npmjs.com/package/browserslist-adobe-analytics
 
 [license-badge]: https://flat.badgen.net/npm/license/browserslist-adobe-analytics
-
-[commit-style-badge]: https://flat.badgen.net/badge/commit%20style/angular/purple
-[commit-style-link]: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines
-
-[semantic-release-badge]: https://flat.badgen.net/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80/semantic%20release/e10079
-[semantic-release-link]: https://github.com/semantic-release/semantic-release
-
-[dependabot-badge]: https://flat.badgen.net/dependabot/xeroxinteractive/browserslist-adobe-analytics?icon=dependabot
-[dependabot-link]: https://dependabot.com
 
 [new-integration-image]: ./new-integration.png
 

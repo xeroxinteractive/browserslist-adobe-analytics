@@ -11,7 +11,11 @@
     "custom usage data",
     "caniuse"
   ],
-  "repository": "git@github.com:xeroxinteractive/browserslist.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xeroxinteractive/browserslist-tools.git",
+    "directory": "packages/adobe-analytics"
+  },
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
   "type": "commonjs",
