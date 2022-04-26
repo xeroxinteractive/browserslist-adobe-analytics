@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - release
+      - next
 
 name: Publish
 
@@ -34,9 +35,20 @@ jobs:
       - run: pnpm nx build
       - name: Modify Workspace File
         run: sed -e "s|'packages\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
-      - name: Publish with changesets
+      - name: Publish with changesets (next)
+        if: github.ref == 'refs/heads/next'
         uses: changesets/action@v1
         with:
+          version: pnpx changeset version --snapshot next
+          publish: pnpx changeset publish --tag next
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish with changesets (release)
+        if: github.ref == 'refs/heads/release'
+        uses: changesets/action@v1
+        with:
+          version: pnpx changeset version
           publish: pnpx changeset publish
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
