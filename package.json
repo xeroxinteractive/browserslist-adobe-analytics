@@ -12,9 +12,6 @@
   "repository": "git@github.com:xeroxinteractive/browserslist-tools.git",
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
-  "scripts": {
-    "nx": "nx"
-  },
   "engines": {
     "node": ">=14"
   },
