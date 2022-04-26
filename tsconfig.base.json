@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "browserslist-adobe-analytics": ["packages/adobe-analytics/src/index.ts"]
+    }
+  }
+}

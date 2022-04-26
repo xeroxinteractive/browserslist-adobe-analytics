@@ -1,4 +1,4 @@
-import { BaseOptions, RequestBody } from 'source/types';
+import { BaseOptions, RequestBody } from '../types';
 import moment from 'moment';
 
 export const defaultDuration = [3, 'months'];

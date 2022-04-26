@@ -5,10 +5,21 @@
   "files.eol": "\n",
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
+  "editor.formatOnSave": false,
   "[typescript]": {
-    "editor.formatOnSave": true
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    }
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    }
   },
   "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
     "editor.formatOnSave": true
   },
   "[yaml]": {
@@ -18,5 +29,6 @@
     "extensions": [".ts"]
   },
   "eslint.validate": ["typescript"],
-  "typescript.tsdk": "./node_modules/typescript/lib"
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "eslint.alwaysShowStatus": true,
 }

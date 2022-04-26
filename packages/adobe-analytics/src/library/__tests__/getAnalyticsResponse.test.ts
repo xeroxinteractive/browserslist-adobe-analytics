@@ -1,6 +1,5 @@
 jest.mock('util');
 
-import { mocked } from 'ts-jest/utils';
 import nodeFetch, { Response } from 'node-fetch';
 import authenticate from '@adobe/jwt-auth';
 import mockBrowserReport from '../../__specs__/browser-report';
@@ -11,11 +10,11 @@ import MockDate from 'mockdate';
 import { FetchError } from '../../__mocks__/node-fetch';
 import { ResponseError } from '../../types';
 
-const mockFetch = mocked(nodeFetch, true);
-const mockAuthenticate = mocked(authenticate, true);
+const mockFetch = jest.mocked(nodeFetch, true);
+const mockAuthenticate = jest.mocked(authenticate, true);
 MockDate.set('2019-11-01T00:00:00.000');
 const mockReadFile = jest.fn();
-mocked(util).promisify.mockImplementation(() => mockReadFile);
+jest.mocked(util).promisify.mockImplementation(() => mockReadFile);
 
 import getAnalyticsResponse from '../getAnalyticsResponse';
 
@@ -40,14 +39,14 @@ test('normal behaviour', async () => {
 test('HTTP error', async () => {
   mockFetch.mockImplementationOnce(
     async (): Promise<Response> =>
-      (({
+      ({
         json: async (): Promise<Response> => {
           return undefined as any;
         },
         ok: false,
         statusText: 'Forbidden',
         status: 403,
-      } as Partial<Response>) as Response)
+      } as Partial<Response> as Response)
   );
   await expect(getAnalyticsResponse(mockOptions)).rejects.toThrow(
     new ResponseError('Forbidden', 403)
@@ -65,12 +64,12 @@ test('Fetch error', async () => {
   const mockFetchError = new FetchError('---message---', '---type---');
   mockFetch.mockImplementationOnce(
     async (): Promise<Response> =>
-      (({
+      ({
         json: async (): Promise<Response> => {
           throw mockFetchError;
         },
         ok: true,
-      } as Partial<Response>) as Response)
+      } as Partial<Response> as Response)
   );
   await expect(getAnalyticsResponse(mockOptions)).rejects.toThrow(
     mockFetchError

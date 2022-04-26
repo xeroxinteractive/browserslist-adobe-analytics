@@ -52,5 +52,5 @@ export default async function getAnalyticsResponse(
   if (!response.ok) {
     throw new ResponseError(response.statusText, response.status);
   }
-  return await response.json();
+  return (await response.json()) as RankedReportData | undefined;
 }
