@@ -191,7 +191,7 @@ describe('transformAnalyticsResponse', () => {
               data: [5.0],
             },
           ],
-        }).chrome['70']
+        })['chrome']['70']
       )
     ).toBe(50);
   });

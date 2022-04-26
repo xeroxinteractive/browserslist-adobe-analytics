@@ -6,10 +6,9 @@ import mockOptions from '../__specs__/options';
 import MockDate from 'mockdate';
 import getBaseStats from '../library/getBaseStats';
 import * as util from 'util';
-import { mocked } from 'ts-jest/utils';
 
 const mockWriteFile = jest.fn();
-mocked(util).promisify.mockImplementation(() => mockWriteFile);
+jest.mocked(util).promisify.mockImplementation(() => mockWriteFile);
 
 import { getBrowserslistStats, writeBrowserslistStats } from '../index';
 

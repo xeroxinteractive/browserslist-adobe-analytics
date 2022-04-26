@@ -22,6 +22,7 @@ export async function getBrowserslistStats(
   if (response) {
     return transformAnalyticsResponse(response);
   }
+  return undefined;
 }
 
 /**

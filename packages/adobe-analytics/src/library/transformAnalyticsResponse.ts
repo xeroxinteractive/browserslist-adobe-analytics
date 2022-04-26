@@ -1,4 +1,4 @@
-import { RankedReportData } from 'source/types';
+import { RankedReportData } from '../types';
 import { Stats } from 'browserslist';
 import getBaseStats from './getBaseStats';
 import semver from 'semver';
@@ -139,6 +139,7 @@ export function getBrowserVersion(
       }
     }
   }
+  return undefined;
 }
 
 /**

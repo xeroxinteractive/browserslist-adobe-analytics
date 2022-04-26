@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "adobe-analytics": "packages/adobe-analytics"
+  }
+}

@@ -1,17 +1,21 @@
 on:
   push:
     branches:
+      - next
+  pull_request:
+    branches:
+      - next
       - release
 
-name: Publish
+name: Check
 
 jobs:
-  test:
+  check:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [14.x, 16.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -21,8 +25,6 @@ jobs:
         with:
           main-branch-name: 'next'
       - uses: pnpm/action-setup@v2.2.1
-      - name: Setup npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -31,13 +33,4 @@ jobs:
       - run: pnpm install
       - run: pnpm nx affected:lint
       - run: pnpm nx affected:test
-      - run: pnpm nx build
-      - name: Modify Workspace File
-        run: sed -e "s|'packages\/|'dist/|" pnpm-workspace.yaml > pnpm-new.yaml && mv pnpm-new.yaml pnpm-workspace.yaml
-      - name: Publish with changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpx changeset publish
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: pnpm nx affected:build
