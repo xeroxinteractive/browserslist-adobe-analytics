@@ -20,7 +20,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: 'next'
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.1
       - name: Setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
       - name: Use Node.js ${{ matrix.node-version }}
