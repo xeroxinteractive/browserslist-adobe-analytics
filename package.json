@@ -40,7 +40,7 @@
     "nx": "latest",
     "prettier": "2.6.2",
     "ts-jest": "27.1.4",
-    "ts-node": "9.1.1",
+    "ts-node": "10.7.0",
     "typescript": "4.6.3"
   },
   "private": true,
