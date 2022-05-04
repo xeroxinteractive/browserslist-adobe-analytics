@@ -23,6 +23,9 @@ export type BaseOptions =
   | BaseOptionsWithPrivateKey
   | BaseOptionsWithPrivateKeyPath;
 
+export type BaseOptionsCombined = BaseOptionsWithPrivateKey &
+  BaseOptionsWithPrivateKeyPath;
+
 /**
  * Type guard to check if we have a private key or private key path.
  *

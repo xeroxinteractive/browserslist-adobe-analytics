@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import yargs, { Arguments } from 'yargs';
+import yargs from 'yargs';
 import { baseOptions, writeOptions } from './options';
 import { getBrowserslistStats, writeBrowserslistStats } from '../index';
-import { BaseOptions, WriteOptions } from '../types';
+import { BaseOptionsCombined, WriteOptions } from '../types';
 import ora from 'ora';
 
 yargs
@@ -19,11 +19,11 @@ yargs
     }
   }, true)
   // Default command to generate and print stats data.
-  .command(
+  .command<BaseOptionsCombined>(
     '$0',
     'Generate browserslist stats from Adobe Analytics data.',
     (yargs) => yargs.options(baseOptions),
-    async (args: Arguments<BaseOptions>) => {
+    async (args) => {
       const spinner = ora(
         'Generating browserslist stats from Adobe Analytics data.'
       ).start();
@@ -40,11 +40,11 @@ yargs
     }
   )
   // Write command to generate and write stats data to file.
-  .command(
+  .command<WriteOptions>(
     'write',
     'Write browserslist stats to file from Adobe Analytics data.',
     (yargs) => yargs.options(writeOptions),
-    async (args: Arguments<WriteOptions>) => {
+    async (args) => {
       const spinner = ora(
         'Writing browserslist stats to file from Adobe Analytics data.'
       ).start();
