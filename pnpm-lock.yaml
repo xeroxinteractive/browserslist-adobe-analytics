@@ -65,6 +65,7 @@ importers:
     specifiers:
       '@adobe/jwt-auth': 1.0.1
       '@types/caniuse-lite': 1.0.1
+      '@types/yargs': 17.0.10
       browserslist: 4.20.3
       caniuse-lite: 1.0.30001332
       moment: 2.29.3
@@ -83,6 +84,7 @@ importers:
       yargs: 17.4.1
     devDependencies:
       '@types/caniuse-lite': 1.0.1
+      '@types/yargs': 17.0.10
 
 packages:
 

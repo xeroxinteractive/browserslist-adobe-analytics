@@ -23,7 +23,8 @@
     "node": ">=14"
   },
   "devDependencies": {
-    "@types/caniuse-lite": "1.0.1"
+    "@types/caniuse-lite": "1.0.1",
+    "@types/yargs": "17.0.10"
   },
   "dependencies": {
     "@adobe/jwt-auth": "1.0.1",
