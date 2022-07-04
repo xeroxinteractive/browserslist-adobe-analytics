@@ -12,7 +12,7 @@ importers:
       '@nrwl/node': 14.0.5
       '@nrwl/nx-cloud': latest
       '@nrwl/workspace': latest
-      '@types/jest': 27.4.1
+      '@types/jest': 28.1.4
       '@types/node': 16.11.31
       '@types/node-fetch': 2.6.1
       '@types/semver': 7.3.9
@@ -42,7 +42,7 @@ importers:
       '@nrwl/node': 14.0.5_e2e6f6f71499b4ec3f23dd6f1334f931
       '@nrwl/nx-cloud': 14.2.0
       '@nrwl/workspace': 14.4.0_5b9e6c9690b9308cd1a99c418fba0a14
-      '@types/jest': 27.4.1
+      '@types/jest': 28.1.4
       '@types/node': 16.11.31
       '@types/node-fetch': 2.6.1
       '@types/semver': 7.3.9
@@ -57,7 +57,7 @@ importers:
       mockdate: 3.0.5
       nx: 14.4.0
       prettier: 2.6.2
-      ts-jest: 28.0.1_d4282ed8e73c7ab217e36915a7a749e5
+      ts-jest: 28.0.1_ba170decb029ef19e74d23cc4d1751c4
       ts-node: 10.7.0_a4262a62498b23fb032f5b253175dd5e
       typescript: 4.6.4
 
@@ -1847,11 +1847,11 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/27.4.1:
-    resolution: {integrity: sha512-23iPJADSmicDVrWk+HT58LMJtzLAnB2AgIzplQuq/bSrGaxCrlvRFjGbXmamnnk/mAmCdLStiGqggu28ocUyiw==}
+  /@types/jest/28.1.4:
+    resolution: {integrity: sha512-telv6G5N7zRJiLcI3Rs3o+ipZ28EnE+7EvF0pSrt2pZOMnAVI/f+6/LucDxOvcBcTeTL3JMF744BbVQAVBUQRA==}
     dependencies:
-      jest-matcher-utils: 27.5.1
-      pretty-format: 27.5.1
+      jest-matcher-utils: 28.1.1
+      pretty-format: 28.1.1
     dev: true
 
   /@types/json-schema/7.0.11:
@@ -6958,7 +6958,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-jest/28.0.1_d4282ed8e73c7ab217e36915a7a749e5:
+  /ts-jest/28.0.1_ba170decb029ef19e74d23cc4d1751c4:
     resolution: {integrity: sha512-PbkbitaT/9ZYAqqzk3UYTvCq080Seo46T3m/AdwcZ0D8WH2uBhG6PvA8oOAWsZIknzPQU66fYobvFCL8IqIhmg==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     hasBin: true
@@ -6979,7 +6979,7 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@types/jest': 27.4.1
+      '@types/jest': 28.1.4
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 28.1.2_3bcb56a7803e59481250b8f2fcd11d0b
