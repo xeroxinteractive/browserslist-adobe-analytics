@@ -28,12 +28,12 @@
   },
   "dependencies": {
     "@adobe/jwt-auth": "1.0.1",
-    "browserslist": "4.20.3",
-    "caniuse-lite": "1.0.30001335",
+    "browserslist": "4.21.1",
+    "caniuse-lite": "1.0.30001363",
     "moment": "2.29.3",
     "node-fetch": "2.6.7",
-    "ora": "6.1.0",
+    "ora": "6.1.2",
     "semver": "7.3.7",
-    "yargs": "17.4.1"
+    "yargs": "17.5.1"
   }
 }
