@@ -21,7 +21,7 @@
     "@nrwl/jest": "latest",
     "@nrwl/js": "latest",
     "@nrwl/linter": "latest",
-    "@nrwl/node": "14.0.5",
+    "@nrwl/node": "14.4.0",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "latest",
     "@types/jest": "28.1.4",
