@@ -29,7 +29,7 @@
   "dependencies": {
     "@adobe/jwt-auth": "1.0.1",
     "browserslist": "4.21.2",
-    "caniuse-lite": "1.0.30001366",
+    "caniuse-lite": "1.0.30001367",
     "moment": "2.29.4",
     "node-fetch": "2.6.7",
     "ora": "6.1.2",
