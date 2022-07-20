@@ -1,3 +1,5 @@
+> **Warning** This project has been archived and moved to a monorepo: https://github.com/xeroxinteractive/browserslist-tools
+
 # browserslist-adobe-analytics
 
 > Use Adobe Analytics data to target browsers.
